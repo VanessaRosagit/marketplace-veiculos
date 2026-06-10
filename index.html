@@ -1,23 +1,27 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFSCars - Marketplace de Veículos</title>
-    <!-- Bootstrap CSS v5.3 -->
+    <!-- Bootstrap CSS v5.3 — framework de grid e componentes -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome para ícones -->
+    <!-- Font Awesome — biblioteca de ícones vetoriais -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Estilos personalizados do projeto -->
     <link rel="stylesheet" href="styles/meu.css">
-
 </head>
 
 <body>
 
-    <!-- HEADER / NAVBAR -->
+    <!-- =====================================================================
+         HEADER / NAVBAR
+         Barra de navegação fixa no topo com logo, links e botões de acesso
+         ===================================================================== -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3" aria-label="Navegação Principal">
+            <!-- Logo + nome da marca -->
             <div class="">
                 <a class="navbar-brand d-flex align-items-center fw-bold fs-3 text-white" href="index.html">
                     <img src="img/Logo.png" alt="">
@@ -25,11 +29,13 @@
                 </a>
             </div>
 
+            <!-- Botão hamburguer — visível apenas em telas pequenas -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
+            <!-- Links do menu e botões de acesso (colapsam no mobile) -->
             <div class="collapse navbar-collapse justify-content-md-end mx-5" id="navbarNav">
                 <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
                     <li class="nav-item"><a class="nav-link active fw-semibold mx-5" href="index.html">Comprar</a></li>
@@ -38,6 +44,7 @@
                     <li class="nav-item"><a class="nav-link text-white mx-5" href="sobre.html">Sobre</a></li>
                 </ul>
 
+                <!-- Ícone de favoritos e botão de login -->
                 <div class="d-flex align-items-center gap-3">
                     <a href="login.html" class="text-white fs-5" aria-label="Meus Favoritos"><i
                             class="fa-regular fa-heart"></i></a>
@@ -49,19 +56,27 @@
         </nav>
     </header>
 
-    <!-- BUSCA PRINCIPAL -->
+    <!-- =====================================================================
+         CONTEÚDO PRINCIPAL
+         ===================================================================== -->
     <main>
+
+        <!-- ---- SEÇÃO HERO / BUSCA PRINCIPAL ----
+             Bloco de destaque com fundo escurecido, título e formulário de busca rápida -->
         <section class="busca-inicial mx-auto mt-5 rounded-2" aria-label="Busca rápida de veículos">
             <div>
                 <h1 class="fw-bold mb-2">Encontre o <span class="text-info">carro ideal</span> para você</h1>
                 <p class="text-white-50 mb-4 fs-5">As melhores agências, os melhores veículos e as melhores
                     oportunidades em um só lugar.</p>
 
+                <!-- Formulário de busca com filtros de marca, preço, região e ano -->
                 <form class="p-5 rounded-3 text-dark row w-100" id="form-inicio">
+                    <!-- Campo de texto livre: marca ou modelo -->
                     <div class="col-12 col-md-2">
                         <label for="buscaMarca" class="form-label fw-bold text-muted small">Marca ou Modelo</label>
                         <input type="text" id="buscaMarca" class="form-control" placeholder="Ex: Toyota Corolla">
                     </div>
+                    <!-- Filtro de faixa de preço -->
                     <div class="col-12 col-md-2">
                         <label for="buscaPreco" class="form-label fw-semibold text-muted small">Faixa de Preço</label>
                         <select id="buscaPreco" class="form-select">
@@ -70,6 +85,7 @@
                             <option value="2">R$ 50.000 a R$ 100.000</option>
                         </select>
                     </div>
+                    <!-- Filtro de região/estado -->
                     <div class="col-12 col-md-2">
                         <label for="buscaRegiao" class="form-label fw-semibold text-muted small">Região</label>
                         <select id="buscaRegiao" class="form-select">
@@ -78,6 +94,7 @@
                             <option value="RJ">Rio de Janeiro</option>
                         </select>
                     </div>
+                    <!-- Filtro de intervalo de ano (De / Até) -->
                     <div class="col-6 col-md-3 col-lg-2">
                         <label for="buscaAnoDe" class="form-label fw-semibold text-muted small">Ano (De)</label>
                         <select id="buscaAnoDe" class="form-select">
@@ -92,11 +109,13 @@
                             <option>2026</option>
                         </select>
                     </div>
+                    <!-- Botão de busca alinhado à base dos outros campos -->
                     <div class="col-12 col-md-2 d-flex align-items-end ">
                         <button type="submit" class="btn btn-search w-100 py-2">Buscar</button>
                     </div>
                 </form>
 
+                <!-- Diferenciais da plataforma exibidos como ícones + texto -->
                 <div class="row mt-4 text-center justify-content-center g-3 text-white">
                     <div class="col-6 col-md-3 fs-5"><i class="fa-solid fa-circle-check text-info me-1"></i> Veículos de
                         Lojas Confiáveis</div>
@@ -111,17 +130,23 @@
             </div>
         </section>
 
+        <!-- ---- ÁREA DE ANÚNCIOS ----
+             Grade com sidebar de filtros à esquerda e listagem de cards à direita -->
         <div class="p-3 mx-auto my-5 anuncios">
             <div class="row g-4">
 
-                <!-- Sidebar de Filtros -->
+                <!-- ---- SIDEBAR DE FILTROS (coluna lateral esquerda) ----
+                     Filtros adicionais de marca, preço, ano, câmbio, combustível etc.
+                     Usa accordion do Bootstrap para mostrar/ocultar cada grupo -->
                 <aside class="col-12 col-lg-3 fs-5" aria-label="Filtros de busca">
                     <div class="filter-sidebar">
+                        <!-- Cabeçalho da sidebar com link para limpar todos os filtros -->
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h5 class="fw-bold m-0 fs-6">Filtros</h5>
                             <a href="index.html" class="text-decoration-none small text-primary">Limpar Tudo</a>
                         </div>
 
+                        <!-- Checkboxes de tipo: Usados / Novos -->
                         <div class="mb-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" id="checkUsados" checked>
@@ -138,8 +163,10 @@
                         </div>
                         <hr>
 
+                        <!-- Acordeão de filtros avançados (Marca, Preço, Ano, Câmbio...) -->
                         <div class="accordion accordion-flush" id="accordionFiltros">
 
+                            <!-- Filtro de Marca com campo de busca e checkboxes -->
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button px-0 fw-semibold bg-white text-dark small"
@@ -171,6 +198,7 @@
                                 </div>
                             </div>
 
+                            <!-- Filtro de Faixa de Preço com slider range -->
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
@@ -189,6 +217,7 @@
                                 </div>
                             </div>
 
+                            <!-- Filtros simples: Ano, Câmbio, Combustível, Quilometragem, Itens, Região, Cor -->
                             <div class="accordion-item">
                                 <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
                                     type="button" data-bs-toggle="collapse" data-bs-target="#filterAno">Ano</button>
@@ -248,7 +277,10 @@
                     </div>
                 </aside>
 
+                <!-- ---- SEÇÃO DE RESULTADOS (coluna principal direita) ----
+                     Exibe quantidade de anúncios, seletor de ordenação e grid de cards -->
                 <section class="col-12 col-lg-9 fs-5" aria-label="Resultados da busca">
+                    <!-- Cabeçalho dos resultados: total encontrado + ordenação -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <span class="fw-semibold text-muted">1.250 Anúncios Encontrados</span>
                         <div class="d-flex align-items-center gap-2">
@@ -261,19 +293,25 @@
                             </select>
                         </div>
                     </div>
+
+                    <!-- Grade de cards de veículos (3 por linha em desktop) -->
                     <div class="row g-3">
 
+                        <!-- Card: Chevrolet Onix -->
                         <div class="col-12 col-md-4">
                             <article class="car-card">
                                 <div class="position-relative">
+                                    <!-- Ícone de favoritar posicionado sobre a imagem -->
                                     <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
                                     <img src="https://placehold.co/400x250/ccc/333?text=Chevrolet+Onix"
                                         class="img-fluid w-100" alt="Chevrolet Onix Branco">
+                                    <!-- Badge de contador de fotos -->
                                     <span class="img-badge fs-7">1/6</span>
                                 </div>
                                 <div class="p-3">
                                     <h3 class="fw-bold mb-1 text-dark">Chevrolet Onix</h3>
                                     <p class="text-muted small mb-2">1.4 Automático</p>
+                                    <!-- Detalhes do veículo em grid de 2 colunas -->
                                     <div class="row text-muted small g-2 mb-3">
                                         <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2024/2025</div>
                                         <div class="col-6 text-end fs-5"><i class="fa-solid fa-gauge me-1"></i> 39.800
@@ -284,6 +322,7 @@
                                         <div class="col-12 fw-semibold text-dark"><i class="fa-solid fa-shop me-1"></i>
                                             Prime Motors</div>
                                     </div>
+                                    <!-- Rodapé do card: preço e botão de detalhes -->
                                     <div class="d-flex justify-content-between align-items-center border-top pt-3">
                                         <span class="preco fw-bold text-primary">R$ 83.900</span>
                                         <a href="visualizacao.html" class="btn btn-sm btn-outline-primary px-3 fs-5">Ver Detalhes</a>
@@ -292,6 +331,7 @@
                             </article>
                         </div>
 
+                        <!-- Card: Toyota Corolla -->
                         <div class="col-12 col-md-4">
                             <article class="car-card">
                                 <div class="position-relative">
@@ -321,6 +361,7 @@
                             </article>
                         </div>
 
+                        <!-- Card: Honda Civic -->
                         <div class="col-12 col-md-4">
                             <article class="car-card">
                                 <div class="position-relative">
@@ -350,6 +391,7 @@
                             </article>
                         </div>
 
+                        <!-- Card: Toyota Hilux -->
                         <div class="col-12 col-md-4">
                             <article class="car-card">
                                 <div class="position-relative">
@@ -379,6 +421,7 @@
                             </article>
                         </div>
 
+                        <!-- Card: Hyundai Creta -->
                         <div class="col-12 col-md-4">
                             <article class="car-card">
                                 <div class="position-relative">
@@ -408,6 +451,7 @@
                             </article>
                         </div>
 
+                        <!-- Card: Fiat Argo -->
                         <div class="col-12 col-md-4">
                             <article class="car-card">
                                 <div class="position-relative">
@@ -438,6 +482,7 @@
                         </div>
                     </div>
 
+                    <!-- Paginação dos resultados -->
                     <nav class="mt-5" aria-label="Navegação de páginas de resultados">
                         <ul class="pagination justify-content-center">
                             <li class="page-item disabled"><a class="page-line page-link" href="#" tabindex="-1"><i
@@ -458,17 +503,22 @@
         </div>
     </main>
 
-    <!-- Footer padrao -->
+    <!-- =====================================================================
+         FOOTER (RODAPÉ)
+         Quatro colunas: marca, sobre nós, ajuda, contato e redes sociais
+         ===================================================================== -->
     <footer class="mt-5">
         <div class="container">
             <div class="row g-4">
 
+                <!-- Coluna 1: Logo e slogan -->
                 <div class="col-12 col-md-3">
                     <span class="fw-bold fs-4 text-white d-block mb-2"><i class="fa-solid fa-gauge-high text-info"></i>
                         NFSCars</span>
                     <p class="text-white-50 small">Marketplace de veículos com agências verificadas.</p>
                 </div>
 
+                <!-- Coluna 2: Sobre nós -->
                 <div class="col-6 col-md-2">
                     <h4 class="fw-bold text-white mb-3">Sobre nós</h4>
                     <p class="text-white-50 small mb-2">Saiba mais sobre nossa história, missão e valores.</p>
@@ -476,6 +526,7 @@
                             class="fa-solid fa-chevron-right small"></i></a>
                 </div>
 
+                <!-- Coluna 3: Links de ajuda -->
                 <div class="col-6 col-md-2">
                     <h4 class="fw-bold text-white mb-3">Ajuda</h4>
                     <ul class="list-unstyled small d-flex flex-column gap-2">
@@ -490,6 +541,7 @@
                     </ul>
                 </div>
 
+                <!-- Coluna 4: Contato -->
                 <div class="col-12 col-md-3">
                     <h4 class="fw-bold text-white mb-3">Contato</h4>
                     <p class="text-white-50 small mb-2"><i class="fa-solid fa-phone me-2 text-info"></i> (11) 99999-9999
@@ -498,6 +550,7 @@
                         contato@nfscars.com</p>
                 </div>
 
+                <!-- Coluna 5: Redes sociais -->
                 <div class="col-12 col-md-2 text-md-end">
                     <h4 class="fw-bold text-white mb-3">Redes Sociais</h4>
                     <div class="d-flex gap-3 justify-content-md-end">
@@ -508,6 +561,7 @@
                     </div>
                 </div>
             </div>
+            <!-- Linha separadora e copyright -->
             <hr class="border-secondary my-4">
             <div class="text-center text-white-50 small">
                 © 2026 ABIGAIU PORTO | BRUNO HENRIQUE | VANESSA ROSA Todos os direitos reservados.
@@ -515,6 +569,7 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS (inclui Popper.js para dropdowns e acordeões) -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 

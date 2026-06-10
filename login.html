@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -6,15 +6,21 @@
     <title>Entrar - NFSCars</title>
     <!-- Bootstrap CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Ícones do Bootstrap -->
+    <!-- Bootstrap Icons — conjunto de ícones SVG oficial do Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Estilos personalizados do projeto -->
     <link rel="stylesheet" href="styles/meu.css">
+    <!-- Font Awesome — ícones adicionais (ex: Google, redes sociais) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<!-- d-flex + flex-column + min-vh-100 garante que o footer fique no rodapé mesmo com pouco conteúdo -->
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- Acessibilidade -->
+    <!-- =====================================================================
+         BARRA DE ACESSIBILIDADE
+         Botões flutuantes no lado direito para aumentar/diminuir fonte e alternar contraste.
+         Os IDs são usados pelo meu.js para registrar os eventos de clique.
+         ===================================================================== -->
     <div class="position-fixed top-50 end-0 translate-middle-y me-3 z-3">
         <div class="btn-group-vertical shadow" role="group" aria-label="Acessibilidade">
             <button type="button" class="btn btn-primary" id="aumentarFonte" aria-label="Aumentar fonte">
@@ -32,11 +38,14 @@
         </div>
     </div>
 
-    <!-- ════════ CABEÇALHO SIMPLES ════════ -->
+    <!-- =====================================================================
+         HEADER — Navbar simples com logo e links de navegação
+         ===================================================================== -->
     <header class="bg-custom-dark py-3 shadow-sm">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg px-0" aria-label="Navegação principal">
 
+                <!-- Logo + nome da marca -->
                 <a href="index.html" class="d-flex align-items-center text-decoration-none" aria-label="NFSCars Home">
                     <img src="img/Logo.png" alt="Logo NFSCars" class="brand-logo me-3" />
                     <span class="fs-4 fw-bold text-white">
@@ -44,11 +53,13 @@
                     </span>
                 </a>
 
+                <!-- Botão hamburguer para mobile -->
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menu de navegação">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- Links de navegação centralizados + ações à direita -->
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center">
                         <li class="nav-item"><a class="nav-link nav-link-custom px-3" href="index.html">Comprar</a></li>
@@ -57,6 +68,7 @@
                         <li class="nav-item"><a class="nav-link nav-link-custom px-3" href="sobre.html">Sobre</a></li>
                     </ul>
 
+                    <!-- Botões de favoritos e entrar -->
                     <div class="d-flex align-items-center gap-2 mt-3 mt-lg-0">
                         <a href="login.html" class="btn btn-outline-light btn-navbar-heart" aria-label="Meus Favoritos">
                             <i class="bi bi-heart-fill"></i>
@@ -71,7 +83,10 @@
         </div>
     </header>
 
-    <!-- ════════ CONTEÚDO PRINCIPAL / FORMULÁRIO DE LOGIN ════════ -->
+    <!-- =====================================================================
+         CONTEÚDO PRINCIPAL — Formulário de login centralizado na tela
+         flex-grow-1 faz este bloco expandir para empurrar o footer para baixo
+         ===================================================================== -->
     <main class="flex-grow-1 d-flex align-items-center py-5">
         <div class="container">
             <section class="login-container bg-white rounded-4 shadow p-4 p-md-5 mx-auto">
@@ -80,7 +95,7 @@
                 <h1 class="display-4 fw-bold mb-2 text-dark text-center text-md-start">Entrar</h1>
                 <p class="text-secondary mb-4 text-center text-md-start" style="font-size: 0.95rem;">Acesse sua conta para gerenciar anúncios e mensagens.</p>
 
-                <!-- Formulário de login -->
+                <!-- Formulário de login — action aponta para lojista.html como destino pós-login -->
                 <form action="lojista.html" method="POST" novalidate>
 
                     <!-- Campo de e-mail ou telefone -->
@@ -92,36 +107,39 @@
                         <div id="loginHelp" class="form-text text-muted" style="font-size: 0.75rem;">Usaremos este contato para identificar sua conta.</div>
                     </div>
 
-                    <!-- Campo de senha com mensagem de erro de validação -->
+                    <!-- Campo de senha com exemplo de mensagem de erro de validação (is-invalid) -->
                     <div class="mb-3">
                         <label id="label-senha" for="password" class="form-label fw-bold mb-1" style="font-size: 0.85rem;">Senha</label>
                         <input type="password" id="password" class="form-control form-control-lg bg-white is-invalid"
                                value="....." aria-labelledby="label-senha" aria-describedby="passwordError">
+                        <!-- Mensagem de erro que aparece quando o campo tem a classe is-invalid -->
                         <div id="passwordError" class="invalid-feedback fw-semibold" style="font-size: 0.75rem;">
                             A senha deve ter ao menos 6 caracteres.
                         </div>
                     </div>
 
-                    <!-- Checkbox de lembrar o usuário -->
+                    <!-- Checkbox de lembrar sessão -->
                     <div class="mb-4 form-check">
                         <input type="checkbox" class="form-check-input" id="rememberMe">
                         <label class="form-check-label text-secondary" for="rememberMe" style="font-size: 0.85rem;">Lembrar-me</label>
                     </div>
 
-                    <!-- Botão de envio do formulário -->
+                    <!-- Botão principal de envio -->
                     <button type="submit" class="btn btn-brand-blue w-100 rounded mb-3">Entrar</button>
 
                 </form>
 
-                <!-- Links auxiliares: recuperar senha e ir para cadastro -->
+                <!-- Links auxiliares e opções de login social -->
                 <div class="text-center mt-3">
+                    <!-- Links de recuperação de senha e cadastro -->
                     <p class="mb-1"><a href="login.html" class="text-primary text-decoration-none fw-semibold" style="font-size: 0.85rem;">Esqueceu a senha?</a></p>
                     <p class="text-secondary" style="font-size: 0.85rem;">Ainda não tem conta? <a href="cadastro.html" class="text-primary text-decoration-none fw-semibold">Cadastre-se</a></p>
 
                     <p class="text-muted my-3" style="font-size: 0.8rem;">Ou entre com</p>
 
-                    <!-- Botões de login com redes sociais -->
+                    <!-- Botões de OAuth (Google e Facebook) -->
                     <div class="d-flex justify-content-center gap-3">
+                        <!-- Botão Google com SVG inline para não depender de CDN externo -->
                         <a href="lojista.html" class="btn-social" aria-label="Entrar com o Google">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="16" height="16">
                                 <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
@@ -131,6 +149,7 @@
                             </svg>
                             Google
                         </a>
+                        <!-- Botão Facebook -->
                         <a href="lojista.html" class="btn-social" aria-label="Entrar com o Facebook">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="" width="16" height="16">
                             Facebook
@@ -142,17 +161,21 @@
         </div>
     </main>
 
-    <!-- ════════ RODAPÉ ════════ -->
+    <!-- =====================================================================
+         FOOTER — Mesmo rodapé padrão usado em todas as páginas públicas
+         ===================================================================== -->
     <footer class="mt-5">
         <div class="container">
             <div class="row g-4">
 
+                <!-- Logo e slogan -->
                 <div class="col-12 col-md-3">
                     <span class="fw-bold fs-4 text-white d-block mb-2"><i class="fa-solid fa-gauge-high text-info"></i>
                         NFSCars</span>
                     <p class="text-white-50 small">Marketplace de veículos com agências verificadas.</p>
                 </div>
 
+                <!-- Sobre nós -->
                 <div class="col-6 col-md-2">
                     <h4 class="fw-bold text-white mb-3">Sobre nós</h4>
                     <p class="text-white-50 small mb-2">Saiba mais sobre nossa história, missão e valores.</p>
@@ -160,6 +183,7 @@
                             class="fa-solid fa-chevron-right small"></i></a>
                 </div>
 
+                <!-- Links de ajuda -->
                 <div class="col-6 col-md-2">
                     <h4 class="fw-bold text-white mb-3">Ajuda</h4>
                     <ul class="list-unstyled small d-flex flex-column gap-2">
@@ -174,6 +198,7 @@
                     </ul>
                 </div>
 
+                <!-- Contato -->
                 <div class="col-12 col-md-3">
                     <h4 class="fw-bold text-white mb-3">Contato</h4>
                     <p class="text-white-50 small mb-2"><i class="fa-solid fa-phone me-2 text-info"></i> (11) 99999-9999
@@ -182,6 +207,7 @@
                         contato@nfscars.com</p>
                 </div>
 
+                <!-- Redes sociais -->
                 <div class="col-12 col-md-2 text-md-end">
                     <h4 class="fw-bold text-white mb-3">Redes Sociais</h4>
                     <div class="d-flex gap-3 justify-content-md-end">
@@ -199,8 +225,9 @@
         </div>
     </footer>
 
-    <!-- Script do Bootstrap -->
+    <!-- Bootstrap JS -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Script de acessibilidade (fonte e contraste) -->
     <script src="meu.js"></script>
 </body>
 </html>

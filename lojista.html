@@ -9,19 +9,23 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Arquivo de estilos original -->
+    <!-- Estilos personalizados do projeto -->
     <link rel="stylesheet" href="styles/meu.css">
+    <!-- Script de acessibilidade carregado com defer para não bloquear o HTML -->
      <script src="./meu.js" defer></script>
 </head>
 
 <body >
-   <!-- Skip Link (Link de Salto para Acessibilidade) 
-     Deve ser colocado logo no início do <body> e apontar para o id do seu conteúdo principal (ex: #conteudo-principal) -->
+    <!-- Skip Link: permite que usuários de teclado/leitor de tela pulem direto para o conteúdo,
+         ignorando a navbar. Só fica visível ao receber foco (visually-hidden-focusable). -->
 <a href="#conteudo-principal" class="skip-link visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 m-2">
     Pular para o conteúdo principal
 </a>
 
-<!-- BARRA DE FERRAMENTAS DE ACESSIBILIDADE -->
+<!-- =====================================================================
+     BARRA DE FERRAMENTAS DE ACESSIBILIDADE
+     Flutuante no lado direito; botões controlados pelo meu.js
+     ===================================================================== -->
 <section id="barra-acessibilidade"
          class="position-fixed top-50 end-0 translate-middle-y me-3 d-flex flex-column shadow overflow-hidden" 
          aria-label="Ferramentas de acessibilidade">
@@ -50,7 +54,9 @@
 
 </section>
 
-    <!-- HEADER / NAVBAR  -->
+    <!-- =====================================================================
+         HEADER / NAVBAR — Barra da área interna da agência
+         ===================================================================== -->
  <header>
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3" aria-label="Navegação Principal">
         <div class="container-fluid px-4">
@@ -96,7 +102,12 @@
     </nav>
 </header>
 
-    <!-- CONTEÚDO PRINCIPAL (DIVIDIDO EM COLUNAS) -->
+    <!-- =====================================================================
+         CONTEÚDO PRINCIPAL
+         id="conteudo-principal" é o destino do skip link de acessibilidade.
+         tabindex="-1" permite que o foco seja movido para cá programaticamente.
+         Layout: 9 colunas (stats + tabela) + 3 colunas (sidebar de info)
+         ===================================================================== -->
     <main id="conteudo-principal" tabindex="-1" class="container-fluid px-4 my-5">
         
         <div class="row mb-4 align-items-end">
@@ -113,10 +124,10 @@
 
         <div class="row g-4">
             
-            <!-- COLUNA DA ESQUERDA (ESTATÍSTICAS + TABELA DE VEÍCULOS) -->
+            <!-- ---- COLUNA PRINCIPAL (9/12): estatísticas e tabela de veículos ---- -->
             <div class="col-12 col-xl-9">
                 
-                <!-- Linha superior de cards de estatísticas (Perfil Profissional, etc.) -->
+                <!-- ---- CARDS DE ESTATÍSTICAS: 4 KPIs da agência ---- -->
             <section class="row g-3 mb-4" aria-label="Resumo estatístico do estoque e desempenho">
     
     <section class="col-12 col-sm-6 col-md-3">
@@ -435,6 +446,7 @@
 
             </div>
 
+        <!-- ---- SIDEBAR DIREITA (3/12): plano, atalhos e dicas ---- -->
         <div class="col-12 col-xl-3">
     <aside class="d-flex flex-column gap-4" aria-label="Informações complementares e atalhos">
         
@@ -504,7 +516,7 @@
 
   
 
-    <!-- Bootstrap Bundle JS -->
+    <!-- Bootstrap JS (Popper incluído para tooltips e colapsos) -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 

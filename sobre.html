@@ -8,17 +8,20 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="styles/meu.css">
+    <!-- Script de acessibilidade com defer para não bloquear a renderização -->
     <script src="./meu.js" defer></script>
 </head>
 
 <body>
 
-    <!-- Skip Link (Link de Salto para Acessibilidade) -->
+    <!-- Skip link: pula navbar e vai direto ao conteúdo (acessibilidade por teclado) -->
     <a href="#conteudo-principal" class="skip-link visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 m-2">
         Pular para o conteúdo principal
     </a>
 
-    <!-- Barra de Acessibilidade -->
+    <!-- =====================================================================
+         BARRA DE ACESSIBILIDADE — flutuante, controlada pelo meu.js
+         ===================================================================== -->
     <div id="barra-acessibilidade" role="region" aria-label="Ferramentas de Acessibilidade"
          class="position-fixed top-50 end-0 translate-middle-y me-3 d-flex flex-column shadow overflow-hidden" style="z-index: 1050;">
         <button id="aumentarFonte" class="btn btn-primary rounded-top" aria-label="Aumentar tamanho do texto"> A+ </button>
@@ -73,7 +76,7 @@
         </nav>
     </header>
 
-    <!-- Adicionado ID e Tabindex para receber o foco do link de salto -->
+    <!-- id + tabindex="-1": permite que o skip link mova o foco para o conteúdo -->
     <main id="conteudo-principal" tabindex="-1">
         <!-- Seção Hero -->
         <section class="text-center py-5 px-3 hero-bg-imagem" aria-label="Apresentação institucional">
@@ -366,7 +369,7 @@
             </div>
         </section>
 
-        <!-- Seção CTA -->
+        <!-- Seção CTA (Call To Action) — bloco azul incentivando o cadastro -->
         <section class="container my-5" aria-label="Chamada para ação">
             <div class="text-white bg-primary p-4 p-md-5 d-flex flex-column flex-md-row justify-content-between align-items-center gap-4 shadow-sm rounded-3">
                 <div class="d-flex flex-column flex-sm-row align-items-center gap-4 text-center text-sm-start">
@@ -388,7 +391,9 @@
         </section>
     </main>
 
-    <!-- Rodapé -->
+    <!-- =====================================================================
+         FOOTER — Rodapé da página Sobre (usa bg-dark ao invés da classe customizada)
+         ===================================================================== -->
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container">
             <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-between">

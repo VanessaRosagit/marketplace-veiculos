@@ -1,17 +1,25 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar conta - NFSCars</title>
+    <!-- Bootstrap CSS -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Estilos personalizados do projeto -->
     <link rel="stylesheet" href="styles/meu.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<!-- d-flex + flex-column + min-vh-100: garante footer sempre no rodapé -->
 <body class="d-flex flex-column min-vh-100">
 
-    <!-- Acessibilidade -->
+    <!-- =====================================================================
+         BARRA DE ACESSIBILIDADE
+         Mesmos IDs que login.html — controlados pelo meu.js
+         ===================================================================== -->
     <div class="position-fixed top-50 end-0 translate-middle-y me-3 z-3">
         <div class="btn-group-vertical shadow" role="group" aria-label="Acessibilidade">
             <button type="button" class="btn btn-primary" id="aumentarFonte" aria-label="Aumentar fonte">
@@ -29,6 +37,9 @@
         </div>
     </div>
 
+    <!-- =====================================================================
+         HEADER — Navbar padrão das páginas públicas
+         ===================================================================== -->
     <header class="bg-custom-dark py-3 shadow-sm">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg px-0" aria-label="Navegação principal">
@@ -64,6 +75,9 @@
         </div>
     </header>
 
+    <!-- =====================================================================
+         CONTEÚDO PRINCIPAL — Formulário de cadastro de nova conta
+         ===================================================================== -->
     <main class="flex-grow-1 d-flex align-items-center py-5">
         <div class="container">
             <section class="cadastro-container bg-white rounded-4 shadow p-4 p-md-5 mx-auto">
@@ -71,8 +85,10 @@
                 <h1 class="display-4 fw-bold mb-2 text-dark">Criar conta</h1>
                 <p class="text-secondary mb-4" style="font-size: 0.95rem;">Preencha os dados abaixo para começar a anunciar seus veículos.</p>
 
+                <!-- Formulário de cadastro completo -->
                 <form action="#" method="POST" novalidate>
 
+                    <!-- Rótulo de seção "Dados Pessoais" -->
                     <p class="text-uppercase fw-bold mb-3" style="font-size: 0.75rem; letter-spacing: 0.08em; color: #6b7280;">Dados Pessoais</p>
 
                     <!-- Nome completo -->
@@ -85,7 +101,7 @@
                                aria-required="true">
                     </div>
 
-                    <!-- Endereço -->
+                    <!-- Endereço (rua) -->
                     <div class="mb-3">
                         <label for="endereco" class="form-label fw-bold mb-1" style="font-size: 0.85rem;">Endereço</label>
                         <input type="text" id="endereco" name="endereco"
@@ -95,7 +111,7 @@
                                aria-required="true">
                     </div>
 
-                    <!-- Bairro + CEP -->
+                    <!-- Bairro e CEP lado a lado (7/5 colunas) -->
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-sm-7">
                             <label for="bairro" class="form-label fw-bold mb-1" style="font-size: 0.85rem;">Bairro</label>
@@ -106,6 +122,7 @@
                         </div>
                         <div class="col-12 col-sm-5">
                             <label for="cep" class="form-label fw-bold mb-1" style="font-size: 0.85rem;">CEP</label>
+                            <!-- inputmode="numeric" exibe teclado numérico em mobile -->
                             <input type="text" id="cep" name="cep"
                                    class="form-control bg-white"
                                    placeholder="00000-000"
@@ -125,7 +142,7 @@
                                aria-required="true">
                     </div>
 
-                    <!-- Telefone + CPF -->
+                    <!-- Telefone e CNPJ lado a lado -->
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-sm-6">
                             <label for="telefone" class="form-label fw-bold mb-1" style="font-size: 0.85rem;">Telefone</label>
@@ -162,6 +179,7 @@
                     <!-- Senha -->
                     <div class="mb-3">
                         <label for="senha" class="form-label fw-bold mb-1" style="font-size: 0.85rem;">Senha</label>
+                        <!-- autocomplete="new-password" evita que o navegador preencha com a senha salva -->
                         <input type="password" id="senha" name="senha"
                                class="form-control bg-white"
                                placeholder="••••••••"
@@ -181,7 +199,9 @@
                                aria-required="true">
                     </div>
 
-                    <!-- Upload de Logo -->
+                    <!-- ---- ÁREA DE UPLOAD DE LOGO ----
+                         Dropzone com suporte a drag & drop e clique para selecionar arquivo.
+                         O <input type="file"> fica oculto (d-none) e é ativado via JS. -->
                     <div class="mb-4">
                         <label class="form-label fw-bold mb-2" style="font-size: 0.85rem;">Logo da empresa</label>
                         <div id="dropZone"
@@ -195,6 +215,7 @@
                              ondragover="event.preventDefault(); this.style.borderColor='#2563eb'; this.style.background='#eff6ff';"
                              ondragleave="this.style.borderColor='#c7d2fe'; this.style.background='#f8faff';"
                              ondrop="handleDrop(event)">
+                            <!-- Conteúdo padrão da dropzone (instrução + ícone) -->
                             <div id="dropContent">
                                 <span id="dropZoneHelp" class="visually-hidden">Pressione Enter ou Espaço para selecionar a logo.</span>
                                 <i class="bi bi-cloud-upload fs-2 text-primary mb-2"></i>
@@ -203,15 +224,17 @@
                                 <p class="text-secondary mb-0" style="font-size: 0.75rem;">Formatos: JPG, PNG</p>
                                 <p class="text-secondary mb-0" style="font-size: 0.75rem;">Máx. 10MB por imagem</p>
                             </div>
+                            <!-- Prévia da imagem selecionada (oculta até ter arquivo) -->
                             <img id="logoPreview" src="" alt="Preview do logo"
                                  class="d-none rounded-3"
                                  style="max-height: 120px; max-width: 100%; object-fit: contain;">
                         </div>
+                        <!-- Input de arquivo real, oculto — ativado pelo clique na dropzone -->
                         <input type="file" id="logoInput" name="logo" accept=".jpg,.jpeg,.png"
                                class="d-none" onchange="handleFileSelect(this)">
                     </div>
 
-                    <!-- Termos -->
+                    <!-- Checkbox de aceite dos termos de uso -->
                     <div class="mb-4 form-check">
                         <input type="checkbox" class="form-check-input" id="aceitarTermos" aria-required="true">
                         <label class="form-check-label text-secondary" for="aceitarTermos" style="font-size: 0.85rem;">
@@ -222,10 +245,12 @@
                         </label>
                     </div>
 
+                    <!-- Botão de confirmação do cadastro -->
                     <button type="submit" class="btn btn-brand-blue w-100 rounded mb-3">Confirmar Cadastro</button>
 
                 </form>
 
+                <!-- Link para quem já tem conta -->
                 <div class="text-center mt-2">
                     <p class="text-secondary" style="font-size: 0.85rem;">
                         Já tem uma conta? <a href="login.html" class="text-primary text-decoration-none fw-semibold">Fazer login</a>
@@ -236,6 +261,9 @@
         </div>
     </main>
 
+    <!-- =====================================================================
+         FOOTER — Padrão das páginas públicas
+         ===================================================================== -->
     <footer class="mt-5">
         <div class="container">
             <div class="row g-4">
@@ -292,13 +320,22 @@
         </div>
     </footer>
 
+    <!-- Bootstrap JS -->
     <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Script de acessibilidade -->
     <script src="meu.js"></script>
+
+    <!-- =====================================================================
+         SCRIPTS DA DROPZONE DE LOGO
+         Funções que controlam o upload de imagem por clique ou arrastar/soltar
+         ===================================================================== -->
     <script>
+        // Exibe a prévia da imagem após seleção, validando tipo e tamanho (máx 10MB)
         function showPreview(file) {
             if (!file || !file.type.match('image.*') || file.size > 10 * 1024 * 1024) return;
             const reader = new FileReader();
             reader.onload = e => {
+                // Oculta o conteúdo padrão e exibe a imagem selecionada
                 document.getElementById('dropContent').classList.add('d-none');
                 const preview = document.getElementById('logoPreview');
                 preview.src = e.target.result;
@@ -307,10 +344,12 @@
             reader.readAsDataURL(file);
         }
 
+        // Chamado quando o usuário seleciona um arquivo pelo input de arquivo
         function handleFileSelect(input) {
             showPreview(input.files[0]);
         }
 
+        // Permite acionar a dropzone pelo teclado (Enter ou Espaço) para acessibilidade
         function handleDropZoneKey(event) {
             if (event.key === 'Enter' || event.key === ' ' || event.key === 'Spacebar') {
                 event.preventDefault();
@@ -318,8 +357,10 @@
             }
         }
 
+        // Chamado quando um arquivo é solto (drag & drop) na dropzone
         function handleDrop(event) {
             event.preventDefault();
+            // Restaura o estilo da dropzone ao estado normal
             const zone = document.getElementById('dropZone');
             zone.style.borderColor = '#c7d2fe';
             zone.style.background = '#f8faff';

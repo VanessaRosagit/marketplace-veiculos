@@ -1,75 +1,110 @@
 @charset "UTF-8";
+/* Importa a fonte Poppins do Google Fonts em todos os pesos e estilos */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* =====================================================================
+   RESET GLOBAL
+   Remove margens e paddings padrão do navegador em todos os elementos
+   e garante que bordas e paddings sejam incluídos no tamanho total
+   ===================================================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Cores personalizadas baseadas no layout do NFSCars */
+/* =====================================================================
+   VARIÁVEIS GLOBAIS (CORES PRINCIPAIS)
+   Definidas aqui para facilitar reutilização e manutenção das cores
+   ===================================================================== */
 :root {
-    --bg-dark-blue: #0b1528;
-    --btn-blue: #1b66ff;
-    --text-gray: #7a828a;
+    --bg-dark-blue: #0b1528;  /* Azul escuro — usado no fundo da navbar e footer */
+    --btn-blue: #1b66ff;      /* Azul vibrante — cor primária de botões e destaques */
+    --text-gray: #7a828a;     /* Cinza — texto secundário e legendas */
 }
 
+/* =====================================================================
+   BODY
+   Fundo cinza claro e fonte padrão para toda a aplicação
+   ===================================================================== */
 body {
     background-color: #f4f6f9;
     font-family: Arial, sans-serif;
 }
 
+/* =====================================================================
+   NAVBAR (BARRA DE NAVEGAÇÃO)
+   ===================================================================== */
+
+/* Fundo escuro da navbar com a fonte Poppins */
 .navbar-custom {
     background-color: var(--bg-dark-blue);
     font-family: 'poppins';
 }
 
+/* Logo e nome da marca dentro da navbar */
 .navbar-brand {
+    /* Título em negrito itálico ao lado do logo */
     h2 {
         font-size: 1em !important;
         font-weight: bold;
         font-style: italic;
     }
 
+    /* Imagem do logo com tamanho definido */
     img {
         margin: 1em !important;
         width: 150px;
         height: 150px;
     }
 
+    /* Parte do nome da marca em azul (ex: "NFS") */
     span {
         color: var(--btn-blue) !important;
     }
 }
 
+/* Links da navbar em fonte maior */
 .navbar-nav {
     font-size: 30px;
     font-family: 'poppins';
 }
 
+/* =====================================================================
+   SEÇÃO DE BUSCA INICIAL (HERO)
+   Bloco principal da home com fundo escurecido e campo de busca
+   ===================================================================== */
 .busca-inicial {
     width: 90%;
+    /* Gradiente escuro sobre imagem de fundo para melhorar legibilidade */
     background: linear-gradient(rgba(11, 21, 40, 0.8), rgba(11, 21, 40, 0.9)), url('https://placehold.co/1920x600/') no-repeat center;
     background-size: cover;
     padding: 3em;
     color: #ffffff;
 
+    /* Labels do formulário em branco para contrastar com o fundo escuro */
     label {
         color: white !important;
     }
 }
 
+/* Botão de busca azul */
 .btn-search {
     background-color: var(--btn-blue);
     color: white;
     font-weight: bold;
 }
 
+/* Escurece o botão de busca ao passar o mouse */
 .btn-search:hover {
     background-color: #004bd6;
     color: white;
 }
 
+/* =====================================================================
+   SIDEBAR DE FILTROS (LATERAL DE BUSCA)
+   Painel branco com sombra suave para filtros de veículos
+   ===================================================================== */
 .filter-sidebar {
     background-color: #ffffff;
     border-radius: 8px;
@@ -77,15 +112,23 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
+/* =====================================================================
+   CARD DE VEÍCULO
+   Container de cada anúncio na listagem
+   ===================================================================== */
 .car-card {
     background-color: #ffffff;
     border-radius: 8px;
-    overflow: hidden;
+    overflow: hidden;                 /* Garante que imagem não vaze do arredondamento */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
-    position: relative;
+    transition: transform 0.2s;       /* Animação suave ao interagir */
+    position: relative;               /* Necessário para posicionar ícones sobre o card */
 }
 
+/* =====================================================================
+   FORMULÁRIO INICIAL (BUSCA)
+   Unifica o tamanho dos campos do formulário da home
+   ===================================================================== */
 #form-inicio {
     select, input, button {
         font-size: 1em !important;
@@ -93,22 +136,31 @@ body {
     }
 }
 
+/* Container da listagem de anúncios ocupa 90% da largura */
 .anuncios {
     width: 90%;
 }
 
+/* =====================================================================
+   ÍCONE DE FAVORITAR
+   Coração posicionado no canto superior direito da imagem do veículo
+   ===================================================================== */
 .favorite-icon {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8); /* Fundo branco semitransparente */
     border-radius: 50%;
     padding: 5px 10px;
-    color: #dc3545;
+    color: #dc3545;  /* Vermelho padrão do coração */
     cursor: pointer;
-    z-index: 10;
+    z-index: 10;     /* Fica acima da imagem */
 }
 
+/* =====================================================================
+   BADGE SOBRE A IMAGEM
+   Etiqueta pequena (ex: "Novo" / "Usado") no canto inferior esquerdo
+   ===================================================================== */
 .img-badge {
     position: absolute;
     bottom: 10px;
@@ -120,6 +172,11 @@ body {
     border-radius: 4px;
 }
 
+/* =====================================================================
+   FOOTER (RODAPÉ)
+   ===================================================================== */
+
+/* Fundo escuro com texto branco e espaçamento generoso */
 footer {
     background-color: var(--bg-dark-blue);
     color: #ffffff;
@@ -127,35 +184,47 @@ footer {
     font-size: 1em;
 }
 
+/* Links do footer em cinza claro, sem sublinhado */
 footer a {
     color: #ced4da;
     text-decoration: none;
 }
 
+/* Links do footer ficam brancos ao passar o mouse */
 footer a:hover {
     color: #ffffff;
 }
 
+/* =====================================================================
+   UTILITÁRIOS GERAIS
+   Classes de uso recorrente em várias páginas
+   ===================================================================== */
+
+/* Fundo azul escuro reutilizável (navbar, footer, etc.) */
 .bg-custom-dark {
     background-color: var(--bg-dark-blue);
 }
 
+/* Link de navegação branco e negrito */
 .nav-link-custom {
     color: #ffffff;
     font-weight: 600;
     text-decoration: none;
 }
 
+/* Link fica azul ao passar o mouse ou receber foco */
 .nav-link-custom:hover,
 .nav-link-custom:focus {
     color: var(--btn-blue);
     text-decoration: none;
 }
 
+/* Texto em azul primário (ex: parte do nome da marca) */
 .brand-highlight {
     color: var(--btn-blue);
 }
 
+/* Logo pequeno inline com tamanho fixo e objeto contido */
 .brand-logo {
     display: inline-block;
     width: 46px;
@@ -163,25 +232,24 @@ footer a:hover {
     object-fit: contain;
 }
 
+/* Botão de favoritos na navbar com borda discreta */
 .btn-navbar-heart {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
+/* Título de seção no footer */
 .footer-heading {
     color: #ffffff;
     font-size: 1.1rem;
     font-weight: 600;
 }
 
-.login-container {
-    background-color: #ffffff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    padding: 50px;
-    max-width: 700px;
-    margin: 50px auto;
-}
+/* =====================================================================
+   PÁGINAS DE LOGIN E CADASTRO
+   Containers centralizados com sombra suave
+   ===================================================================== */
 
+/* Propriedades visuais compartilhadas entre login e cadastro */
 .login-container,
 .cadastro-container {
     background-color: #ffffff;
@@ -189,24 +257,28 @@ footer a:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+/* Container do login com largura máxima menor */
 .login-container {
     padding: 50px;
     max-width: 700px;
     margin: 50px auto;
 }
 
+/* Container do cadastro ligeiramente mais largo */
 .cadastro-container {
     padding: 50px;
     max-width: 760px;
     margin: 50px auto;
 }
 
+/* Destaque azul nos inputs ao receber foco */
 .form-control:focus,
 .form-select:focus {
     border-color: var(--btn-blue);
     box-shadow: 0 0 0 0.25rem rgba(27, 102, 255, 0.2);
 }
 
+/* Botão azul principal (ex: "Entrar", "Cadastrar") */
 .btn-brand-blue {
     background-color: var(--btn-blue);
     color: #ffffff;
@@ -215,12 +287,14 @@ footer a:hover {
     font-weight: 600;
 }
 
+/* Escurece o botão azul ao passar o mouse ou focar */
 .btn-brand-blue:hover,
 .btn-brand-blue:focus {
     background-color: #004bd6;
     color: #ffffff;
 }
 
+/* Botão de login social (Google, etc.) — estilo neutro com ícone */
 .btn-social {
     border: 1px solid #dee2e6;
     background-color: #ffffff;
@@ -234,24 +308,33 @@ footer a:hover {
     text-decoration: none;
 }
 
+/* Leve fundo cinza ao interagir com botão social */
 .btn-social:hover,
 .btn-social:focus {
     background-color: #f8f9fa;
     color: #1f2937;
 }
 
+/* =====================================================================
+   PAINEL ADMIN
+   Variáveis de layout e componentes exclusivos da área administrativa
+   ===================================================================== */
+
+/* Fundo levemente acinzentado para o painel admin */
 .admin-body {
     background: #f0f2f5;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita scroll horizontal acidental */
 }
 
+/* Dimensões fixas da topbar e sidebar do painel admin */
 :root {
-    --topbar-h: 62px;
-    --sidebar-w: 168px;
+    --topbar-h: 62px;   /* Altura da barra superior */
+    --sidebar-w: 168px; /* Largura da barra lateral */
 }
 
+/* ---- TOPBAR (barra superior fixa) ---- */
 .adm-topbar {
-    position: fixed;
+    position: fixed;    /* Sempre visível no topo da tela */
     top: 0;
     left: 0;
     right: 0;
@@ -260,10 +343,11 @@ footer a:hover {
     display: flex;
     align-items: center;
     padding: 0 1.5rem;
-    z-index: 300;
+    z-index: 300;       /* Fica acima da sidebar e do conteúdo */
     gap: 2rem;
 }
 
+/* Logo + nome do sistema na topbar */
 .adm-brand {
     display: flex;
     align-items: center;
@@ -272,6 +356,7 @@ footer a:hover {
     flex-shrink: 0;
 }
 
+/* Ícone circular azul escuro do logo */
 .adm-brand .brand-icon {
     width: 36px;
     height: 36px;
@@ -284,6 +369,7 @@ footer a:hover {
     font-size: 1.1rem;
 }
 
+/* Nome do sistema em branco e negrito */
 .adm-brand-name {
     font-size: 1.4rem;
     font-weight: 800;
@@ -291,10 +377,12 @@ footer a:hover {
     letter-spacing: -0.5px;
 }
 
+/* Parte do nome em azul (ex: "Cars") */
 .adm-brand-name span {
     color: #3b82f6;
 }
 
+/* Navegação central da topbar */
 .adm-topnav {
     display: flex;
     gap: 0.5rem;
@@ -302,6 +390,7 @@ footer a:hover {
     justify-content: center;
 }
 
+/* Links da navegação superior */
 .adm-topnav a {
     color: #e2e8f0;
     text-decoration: none;
@@ -312,11 +401,13 @@ footer a:hover {
     transition: background 0.15s;
 }
 
+/* Realce sutil ao passar o mouse nos links da topnav */
 .adm-topnav a:hover {
     background: rgba(255, 255, 255, 0.08);
     color: #fff;
 }
 
+/* Botão "Sair" no canto direito da topbar */
 .btn-sair {
     display: flex;
     align-items: center;
@@ -334,9 +425,10 @@ footer a:hover {
     color: #fff;
 }
 
+/* ---- SIDEBAR (menu lateral fixo) ---- */
 .adm-sidebar {
     position: fixed;
-    top: var(--topbar-h);
+    top: var(--topbar-h);   /* Começa logo abaixo da topbar */
     left: 0;
     bottom: 0;
     width: var(--sidebar-w);
@@ -344,9 +436,10 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     z-index: 200;
-    overflow-y: auto;
+    overflow-y: auto; /* Scroll se houver muitos itens */
 }
 
+/* Cabeçalho de seção dentro da sidebar */
 .sidebar-header {
     padding: 1rem 1rem 0.6rem;
     display: flex;
@@ -357,12 +450,14 @@ footer a:hover {
     font-weight: 600;
 }
 
+/* Linha divisória sutil entre seções da sidebar */
 .sidebar-divider {
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.07);
     margin: 0;
 }
 
+/* Lista de navegação da sidebar */
 .adm-nav {
     list-style: none;
     padding: 0.5rem 0;
@@ -370,6 +465,7 @@ footer a:hover {
     flex: 1;
 }
 
+/* Link de item de menu da sidebar */
 .adm-nav li a {
     display: flex;
     align-items: center;
@@ -379,32 +475,37 @@ footer a:hover {
     text-decoration: none;
     font-size: 0.83rem;
     font-weight: 500;
-    border-left: 3px solid transparent;
+    border-left: 3px solid transparent; /* Indicador azul aparece no item ativo */
     transition: background 0.15s, color 0.15s;
 }
 
+/* Hover no item de menu */
 .adm-nav li a:hover {
     background: rgba(255, 255, 255, 0.05);
     color: #e2e8f0;
 }
 
+/* Item de menu ativo — fundo azul escuro e borda azul à esquerda */
 .adm-nav li a.active {
     background: #1e3a5f;
     color: #fff;
     border-left-color: #3b82f6;
 }
 
+/* Ícone do item de menu com largura fixa para alinhamento */
 .adm-nav li a i {
     width: 16px;
     text-align: center;
     font-size: 0.9rem;
 }
 
+/* Chevron (seta) de submenu alinhado à direita */
 .adm-nav li a .chevron {
     margin-left: auto;
     font-size: 0.7rem;
 }
 
+/* Sub-itens de menu com recuo e tom mais apagado */
 .adm-nav .sub-item a {
     padding-left: 2.2rem;
     font-size: 0.8rem;
@@ -416,6 +517,7 @@ footer a:hover {
     color: #94a3b8;
 }
 
+/* Rodapé da sidebar com avatar e nome do usuário logado */
 .adm-sidebar-footer {
     padding: 0.85rem 1rem;
     border-top: 1px solid rgba(255, 255, 255, 0.07);
@@ -425,6 +527,7 @@ footer a:hover {
     cursor: pointer;
 }
 
+/* Avatar circular do usuário */
 .adm-avatar {
     width: 32px;
     height: 32px;
@@ -439,17 +542,21 @@ footer a:hover {
     flex-shrink: 0;
 }
 
+/* Nome do usuário no rodapé da sidebar */
 .adm-sidebar-footer span {
     color: #94a3b8;
     font-size: 0.82rem;
     flex: 1;
 }
 
+/* Ícone de engrenagem/configurações no rodapé da sidebar */
 .adm-sidebar-footer i {
     color: #475569;
     font-size: 0.75rem;
 }
 
+/* ---- ÁREA DE CONTEÚDO PRINCIPAL ---- */
+/* Desloca o conteúdo para não ficar atrás da sidebar/topbar */
 .adm-content {
     margin-left: var(--sidebar-w);
     margin-top: var(--topbar-h);
@@ -457,6 +564,7 @@ footer a:hover {
     min-height: calc(100vh - var(--topbar-h));
 }
 
+/* ---- CARDS KPI (métricas do dashboard) ---- */
 .kpi-card {
     background: #fff;
     border-radius: 10px;
@@ -468,16 +576,19 @@ footer a:hover {
     gap: 0.75rem;
 }
 
+/* Coluna de texto do card KPI */
 .kpi-left {
     flex: 1;
 }
 
+/* Rótulo acima do valor (ex: "Total de veículos") */
 .kpi-label {
     font-size: 0.73rem;
     color: #64748b;
     margin-bottom: 4px;
 }
 
+/* Número grande em destaque */
 .kpi-value {
     font-size: 1.5rem;
     font-weight: 700;
@@ -486,14 +597,17 @@ footer a:hover {
     margin-bottom: 4px;
 }
 
+/* Indicador de variação (ex: "+12% este mês") */
 .kpi-change {
     font-size: 0.71rem;
 }
 
+/* Variação positiva em verde */
 .kpi-change.up {
     color: #16a34a;
 }
 
+/* Ícone quadrado colorido no canto direito do card KPI */
 .kpi-icon-box {
     width: 38px;
     height: 38px;
@@ -505,6 +619,7 @@ footer a:hover {
     flex-shrink: 0;
 }
 
+/* ---- CARDS GENÉRICOS DO PAINEL ---- */
 .adm-card {
     background: #fff;
     border-radius: 10px;
@@ -512,6 +627,7 @@ footer a:hover {
     overflow: hidden;
 }
 
+/* Cabeçalho do card com linha divisória inferior */
 .adm-card-header {
     padding: 0.85rem 1.25rem;
     border-bottom: 1px solid #f1f5f9;
@@ -526,6 +642,9 @@ footer a:hover {
     margin: 0;
 }
 
+/* ---- TABELAS DO PAINEL ---- */
+
+/* Cabeçalho da tabela em maiúsculas com espaçamento de letras */
 .adm-table thead th {
     font-size: 0.68rem;
     text-transform: uppercase;
@@ -537,6 +656,7 @@ footer a:hover {
     border-bottom: 1px solid #f1f5f9;
 }
 
+/* Células do corpo da tabela */
 .adm-table tbody td {
     font-size: 0.82rem;
     padding: 0.65rem 1rem;
@@ -545,10 +665,12 @@ footer a:hover {
     border-bottom: 1px solid #f8fafc;
 }
 
+/* Remove a borda da última linha da tabela */
 .adm-table tbody tr:last-child td {
     border-bottom: none;
 }
 
+/* Badge amarelo para status "Pendente" */
 .badge-pendente {
     background: #fef3c7;
     color: #92400e;
@@ -559,6 +681,9 @@ footer a:hover {
     white-space: nowrap;
 }
 
+/* ---- FEED DE ATIVIDADES ---- */
+
+/* Item individual do feed de atividades */
 .act-item {
     display: flex;
     gap: 0.65rem;
@@ -567,10 +692,12 @@ footer a:hover {
     align-items: flex-start;
 }
 
+/* Remove borda do último item do feed */
 .act-item:last-child {
     border-bottom: none;
 }
 
+/* Bolinha colorida ao lado de cada atividade */
 .act-dot {
     width: 30px;
     height: 30px;
@@ -583,28 +710,37 @@ footer a:hover {
     margin-top: 1px;
 }
 
+/* Texto descritivo da atividade */
 .act-text {
     font-size: 0.78rem;
     color: #1e293b;
     line-height: 1.4;
 }
 
+/* Horário/data da atividade em cinza claro */
 .act-time {
     font-size: 0.7rem;
     color: #94a3b8;
 }
+
+/* =====================================================================
+   UTILITÁRIOS DO PAINEL ADMIN
+   Classes auxiliares de tamanho e cor usadas em vários componentes
+   ===================================================================== */
 
 .stat-icon-circle {
     width: 40px;
     height: 40px;
 }
 
+/* Logo menor para o painel admin */
 .brand-logo-admin {
     width: 36px;
     height: 36px;
     object-fit: contain;
 }
 
+/* Título e subtítulo da página no painel */
 .page-title-admin {
     font-size: 1.3rem;
     color: #0f172a;
@@ -614,86 +750,72 @@ footer a:hover {
     font-size: 0.82rem;
 }
 
-.kpi-icon-blue {
-    background: #dbeafe;
-}
+/* Cores de fundo dos ícones KPI */
+.kpi-icon-blue   { background: #dbeafe; } /* Azul claro */
+.kpi-icon-amber  { background: #fef3c7; } /* Âmbar claro */
+.kpi-icon-green  { background: #dcfce7; } /* Verde claro */
+.kpi-icon-violet { background: #ede9fe; } /* Violeta claro */
 
-.kpi-icon-amber {
-    background: #fef3c7;
-}
-
-.kpi-icon-green {
-    background: #dcfce7;
-}
-
-.kpi-icon-violet {
-    background: #ede9fe;
-}
-
+/* Cor do ícone violeta */
 .icon-violet {
     color: #7c3aed;
 }
 
+/* Valor KPI menor (para números com mais dígitos) */
 .kpi-value-xl {
     font-size: 1.1rem;
 }
 
+/* Badge âmbar para metas pendentes */
 .badge-pendente-meta {
     background: #fef3c7;
     color: #92400e;
     font-size: 0.72rem;
 }
 
+/* Link pequeno de texto (ex: "Ver todos") */
 .text-link-small {
     font-size: 0.78rem;
 }
 
+/* Botões de ação compactos no painel */
 .btn-admin-sm {
     font-size: 0.75rem;
     padding: 2px 10px;
 }
 
+/* Botão de filtro ainda mais compacto */
 .btn-admin-filter-sm {
     font-size: 0.72rem;
     padding: 2px 10px;
 }
 
+/* Ícone de atualizar em tamanho reduzido */
 .icon-refresh-sm {
     font-size: 0.85rem;
 }
 
-.act-dot-blue {
-    background: #dbeafe;
-}
+/* Cores de fundo das bolinhas do feed de atividades */
+.act-dot-blue   { background: #dbeafe; }
+.act-dot-violet { background: #e0e7ff; }
+.act-dot-green  { background: #dcfce7; }
+.act-dot-red    { background: #fee2e2; }
 
-.act-dot-violet {
-    background: #e0e7ff;
-}
+/* Cores dos ícones dentro das bolinhas */
+.icon-violet-dark { color: #6366f1; }
+.icon-red         { color: #dc2626; }
 
-.act-dot-green {
-    background: #dcfce7;
-}
-
-.act-dot-red {
-    background: #fee2e2;
-}
-
-.icon-violet-dark {
-    color: #6366f1;
-}
-
-.icon-red {
-    color: #dc2626;
-}
-
+/* Coluna de nome do veículo ocupa 40% da tabela */
 .table-vehicle-name-col {
     width: 40%;
 }
 
+/* Barra de progresso do plano contratado */
 .plan-progress {
     height: 12px;
 }
 
+/* ---- LEGENDA DO GRÁFICO ---- */
 .chart-legend span {
     display: flex;
     align-items: center;
@@ -702,6 +824,7 @@ footer a:hover {
     color: #64748b;
 }
 
+/* Linha sólida azul na legenda */
 .chart-legend .line-solid {
     width: 20px;
     height: 2px;
@@ -709,31 +832,44 @@ footer a:hover {
     border-radius: 2px;
 }
 
+/* Linha tracejada cinza na legenda */
 .chart-legend .line-dashed {
     width: 20px;
     height: 2px;
     background: repeating-linear-gradient(90deg, #94a3b8 0, #94a3b8 4px, transparent 4px, transparent 8px);
 }
 
+/* =====================================================================
+   RESPONSIVIDADE DO PAINEL ADMIN
+   Em telas menores que 992px, a sidebar fica oculta e desliza ao abrir
+   ===================================================================== */
 @media (max-width: 991px) {
+    /* Sidebar oculta por padrão em mobile */
     .adm-sidebar {
         transform: translateX(-100%);
         transition: transform 0.3s;
     }
 
+    /* Sidebar visível quando o menu hamburguer é ativado */
     .adm-sidebar.show {
         transform: translateX(0);
     }
 
+    /* Conteúdo ocupa a largura toda sem a sidebar */
     .adm-content {
         margin-left: 0;
     }
 
+    /* Oculta a navegação superior em mobile */
     .adm-topnav {
         display: none;
     }
 }
 
+/* =====================================================================
+   BOTÃO SOCIAL (login com Google etc.)
+   Duplicata de .btn-social — mantida para compatibilidade com HTML legado
+   ===================================================================== */
 .social-btn {
     border: 1px solid #dee2e6;
     background-color: #ffffff;
@@ -746,26 +882,28 @@ footer a:hover {
     background-color: #f8f9fa;
 }
 
+/* =====================================================================
+   ACCORDION (FILTROS EM ACORDEÃO)
+   Ajuste de fonte para os itens do acordeão de filtros
+   ===================================================================== */
 .accordion-item {
     font-size: 1em !important;
 
+    /* Botão do acordeão ligeiramente menor que o texto do item */
     .accordion-button {
         font-size: 0.8em !important;
         padding: 1em;
     }
 }
 
+/* Preço do veículo destacado em tamanho maior */
 .preco {
     font-size: 1.2em;
 }
 
-
-
-
-
-
-
-
+/* =====================================================================
+   PÁGINA DO LOJISTA (PAINEL DA LOJA)
+   ===================================================================== */
 
 /* Fundo padrão da página lojista */
 .body-lojista {
@@ -774,8 +912,8 @@ footer a:hover {
 
 /* Ajuste fino da Logo da agência */
 .brand-logo-img {
-    max-height: 40px; 
-    width: auto; 
+    max-height: 40px;
+    width: auto;
     margin-right: 10px;
 }
 
@@ -786,14 +924,14 @@ footer a:hover {
 
 /* Configuração do título principal da loja */
 .panel-title {
-    color: #333333; 
+    color: #333333;
     font-weight: 500;
 }
 
 /* Botão azul padrão para o painel */
 .btn-panel-action {
-    background-color: #1b66ff; 
-    border: none; 
+    background-color: #1b66ff;
+    border: none;
     border-radius: 6px;
 }
 
@@ -825,7 +963,7 @@ footer a:hover {
     font-size: 12px;
 }
 
-/* Badges de status limpos (apenas bordas e cor) */
+/* Badges de status limpos (apenas bordas e cor, sem preenchimento) */
 .badge-status-ativo {
     background: none;
 }
@@ -839,86 +977,92 @@ footer a:hover {
     font-size: 12px;
 }
 
-
 /* Configuração interna da barra de progresso do plano */
 .progress-bar-plan {
-    width: 53% !important; 
+    width: 53% !important;
     background-color: #1b66ff;
 }
 
+/* =====================================================================
+   PÁGINA SOBRE
+   ===================================================================== */
 
-
-/* Estilos restritos apenas para os elementos dentro da página Sobre */
-.bg-estatisticas{
+/* Fundo azul claro da seção de estatísticas */
+.bg-estatisticas {
     background-color: #C4E2FF;
 }
 
-/* Fundo padrão exclusivo desta página */
-
-/* Fundo com Imagem exclusivo para a seção Hero da página Sobre */
+/* Seção hero com imagem de fundo cobrindo toda a área */
 .hero-bg-imagem {
     background-image: url('../img/fundoSobre.jpg');
     background-size: cover;
     background-position: center;
     min-height: 300px;
 }
-/* Tamanho fixo e aspeto circular para os avatares dos depoimentos */
-/* */
 
-/* Bolinhas indicadoras abaixo dos depoimentos */
+/* Bolinhas do carrossel de depoimentos */
 .nfs-sobre-page .dot-carousel {
     width: 8px;
     height: 8px;
-    background-color: #cccccc;
+    background-color: #cccccc; /* Inativa: cinza */
     border-radius: 50%;
     display: inline-block;
 }
+
+/* Bolinha ativa do carrossel em azul primário */
 .nfs-sobre-page .dot-carousel.active {
     background-color: #1b66ff;
 }
 
+/* =====================================================================
+   ACESSIBILIDADE — BARRA E ALTO CONTRASTE
+   ===================================================================== */
 
-/* acessibilidade */
-:root{
-    --acess-width: 70px;
-    --acess-height: 60px;
+/* Variáveis para o modo de alto contraste */
+:root {
+    --acess-width: 70px;   /* Largura da barra de acessibilidade */
+    --acess-height: 60px;  /* Altura dos botões de acessibilidade */
 
-    --contraste-bg: #000;
-    --contraste-text: #fff;
+    --contraste-bg: #000;  /* Preto absoluto para fundo */
+    --contraste-text: #fff; /* Branco absoluto para texto */
 }
 
-#barra-acessibilidade{
+/* Barra de acessibilidade flutuante com z-index alto */
+#barra-acessibilidade {
     width: var(--acess-width);
     z-index: 1050;
 }
 
-#barra-acessibilidade .btn{
+/* Botões dentro da barra de acessibilidade sem borda e sem arredondamento */
+#barra-acessibilidade .btn {
     height: var(--acess-height);
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     border: 0;
     border-radius: 0;
 }
 
-/* Alto contraste */
+/* ---- MODO ALTO CONTRASTE ----
+   Ativado pela classe .alto-contraste no <body>
+   Garante fundo preto e texto branco em todos os elementos visíveis */
 
-body.alto-contraste{
+body.alto-contraste {
     background-color: var(--contraste-bg);
     color: var(--contraste-text);
 }
 
+/* Força fundo preto nas principais áreas de conteúdo */
 body.alto-contraste main,
 body.alto-contraste section,
 body.alto-contraste footer,
 body.alto-contraste .card,
 body.alto-contraste .bg-light,
-body.alto-contraste .bg-white{
+body.alto-contraste .bg-white {
     background-color: var(--contraste-bg) !important;
 }
 
+/* Força texto branco em todos os elementos textuais */
 body.alto-contraste h1,
 body.alto-contraste h2,
 body.alto-contraste h3,
@@ -931,53 +1075,49 @@ body.alto-contraste li,
 body.alto-contraste a,
 body.alto-contraste i,
 body.alto-contraste .text-muted,
-body.alto-contraste .text-secondary{
+body.alto-contraste .text-secondary {
     color: var(--contraste-text) !important;
 }
 
-/* Remove gradientes e imagens de fundo */
-
-body.alto-contraste .hero-bg-imagem{
+/* Remove imagem de fundo da seção hero no alto contraste */
+body.alto-contraste .hero-bg-imagem {
     background: #000 !important;
     background-image: none !important;
 }
-/* Tabela */
 
+/* Força cores da tabela no alto contraste */
 body.alto-contraste .table,
 body.alto-contraste thead,
 body.alto-contraste tbody,
 body.alto-contraste tr,
 body.alto-contraste th,
-body.alto-contraste td{
+body.alto-contraste td {
     background-color: var(--contraste-bg) !important;
     color: var(--contraste-text) !important;
     border-color: var(--contraste-text) !important;
 }
 
-/* Classes Bootstrap que aparecem na tabela */
-
+/* Sobreescreve classes de cor do Bootstrap na tabela */
 body.alto-contraste .table-light,
 body.alto-contraste .text-dark,
 body.alto-contraste .text-muted,
 body.alto-contraste .text-secondary,
 body.alto-contraste .text-success,
-body.alto-contraste .text-warning{
+body.alto-contraste .text-warning {
     color: var(--contraste-text) !important;
     background-color: var(--contraste-bg) !important;
 }
 
-/* Badges */
-
-body.alto-contraste .badge{
+/* Badges sem preenchimento com borda branca no alto contraste */
+body.alto-contraste .badge {
     background-color: transparent !important;
     color: var(--contraste-text) !important;
     border-color: var(--contraste-text) !important;
 }
 
-/* Botões da tabela */
-
+/* Botões outline com borda e texto brancos no alto contraste */
 body.alto-contraste .btn-outline-primary,
-body.alto-contraste .btn-outline-secondary{
+body.alto-contraste .btn-outline-secondary {
     color: var(--contraste-text) !important;
     border-color: var(--contraste-text) !important;
 }
