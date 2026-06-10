@@ -1,0 +1,388 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFSCars - Detalhes do Veículo</title>
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Estilos personalizados do projeto -->
+    <link rel="stylesheet" href="styles/meu.css">
+</head>
+
+<body>
+
+    <a href="#conteudo-principal" class="skip-link visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 m-2">
+        Pular para o conteúdo principal
+    </a>
+
+    <!-- =====================================================================
+         BARRA DE ACESSIBILIDADE — flutuante no lado direito
+         ===================================================================== -->
+    <div id="barra-acessibilidade" role="region" aria-label="Ferramentas de Acessibilidade"
+         class="position-fixed top-50 end-0 translate-middle-y me-3 d-flex flex-column shadow overflow-hidden">
+        <button type="button" class="btn btn-primary rounded-top" id="aumentarFonte" aria-label="Aumentar fonte">
+            <i class="fa-solid fa-plus" aria-hidden="true"></i> A+
+        </button>
+        <button type="button" class="btn btn-primary" id="diminuirFonte" aria-label="Diminuir fonte">
+            <i class="fa-solid fa-minus" aria-hidden="true"></i> A-
+        </button>
+        <button type="button" class="btn btn-secondary" id="resetarFonte" aria-label="Resetar fonte">
+            <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="btn btn-dark rounded-bottom" id="alternarContraste" aria-label="Alternar alto contraste">
+            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- =====================================================================
+         HEADER / NAVBAR — Barra de navegação pública padrão
+         ===================================================================== -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3" aria-label="Navegação Principal">
+            <div class="">
+                <!-- Logo + nome da marca -->
+                <a class="navbar-brand d-flex align-items-center fw-bold fs-3 text-white" href="index.html">
+                    <img src="img/Logo.png" alt="Logo NFSCars">
+                    <span> <span>NFS</span>Cars</span>
+                </a>
+            </div>
+
+            <!-- Botão hamburguer para mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Links de navegação + botões de acesso -->
+            <div class="collapse navbar-collapse justify-content-md-end mx-5" id="navbarNav">
+                <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+                    <li class="nav-item"><a class="nav-link text-white mx-5" href="index.html">Comprar</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-5" href="cadastroVeiculo.html">Vender</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-5" href="lojista.html">Lojas</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-5" href="sobre.html">Sobre</a></li>
+                </ul>
+
+                <!-- Ícone de favoritos e botão de login -->
+                <div class="d-flex align-items-center gap-3">
+                    <a href="login.html" class="text-white fs-5" aria-label="Meus Favoritos"><i class="fa-regular fa-heart"></i></a>
+                    <a href="login.html" class="btn btn-outline-light px-4 pill d-flex align-items-center gap-2 fs-5">
+                        <i class="fa-regular fa-user"></i> Entrar
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- =====================================================================
+         CONTEÚDO PRINCIPAL
+         Layout em duas colunas: detalhes do veículo (8) + formulário de contato (4)
+         ===================================================================== -->
+    <main id="conteudo-principal" tabindex="-1" class="container my-5">
+
+        <!-- ---- GALERIA DE FOTOS ----
+             Três fotos lado a lado em desktop, empilhadas em mobile -->
+        <section class="mb-4" aria-label="Galeria de fotos do veículo">
+            <div class="row g-3">
+                <div class="col-12 col-md-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/2022_Chevrolet_Onix_Turbo_LTZ_%28Chile%29_front_view_%28cropped%29.jpg" class="img-fluid rounded-2 w-100" alt="Vista dianteira do Chevrolet Onix branco" loading="lazy">
+                </div>
+                <div class="col-12 col-md-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/47/2022_Chevrolet_Onix_Plus_1.0_Premier_%28rear%29.jpg" class="img-fluid rounded-2 w-100" alt="Vista traseira do Chevrolet Onix branco" loading="lazy">
+                </div>
+                <div class="col-12 col-md-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Chevrolet_Onix_Turbo_Premier_Sedan_2022_%2852771725520%29.jpg" class="img-fluid rounded-2 w-100" alt="Vista lateral do Chevrolet Onix Turbo Premier" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <div class="row g-4">
+
+            <!-- ---- COLUNA ESQUERDA: Informações do veículo (8 colunas) ---- -->
+            <div class="col-12 col-lg-8">
+
+                <!-- Card com nome, versão e ficha técnica do veículo -->
+                <article class="bg-white p-4 rounded-3 shadow-sm mb-4" aria-labelledby="titulo-carro">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div>
+                            <h1 id="titulo-carro" class="fw-bold text-dark m-0">Chevrolet Onix</span></h1>
+                            <p class="text-muted fs-5">1.4 flex Automático</p>
+                        </div>
+                    </div>
+
+                    <!-- Ficha técnica em grid de 3 colunas -->
+                    <div class="row g-3 border-top pt-3 text-dark">
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">Cidade</span>
+                            <span>São Paulo (SP)</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">Ano</span>
+                            <span>2024/2025</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">KM</span>
+                            <span>39.800</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">Câmbio</span>
+                            <span>Manual</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">Carroceria</span>
+                            <span>Hatch</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">Combustível</span>
+                            <span>Gasolina/Álcool</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">Final da Placa</span>
+                            <span>5</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">Cor</span>
+                            <span>Branco</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">Aceita Troca</span>
+                            <span>Sim</span>
+                        </div>
+                        <div class="col-6 col-sm-4">
+                            <span class="text-muted d-block small fw-bold">IPVA</span>
+                            <span>Pago</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Seção: Lista de itens/opcionais do veículo -->
+                <section class="bg-white p-4 rounded-3 shadow-sm mb-4" aria-labelledby="titulo-itens">
+                    <h2 id="titulo-itens" class="h4 fw-bold mb-3 text-dark">Itens do Veículo</h2>
+                    <!-- Grid de 3 colunas com ícone de check verde para cada item -->
+                    <div class="row g-2 text-dark">
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Alarme</div>
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Freio ABS</div>
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Controle de Tração</div>
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Bancos de couro</div>
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Ar Condicionado</div>
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Air bag</div>
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Travas Elétricas</div>
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Computador de Bordo</div>
+                        <div class="col-6 col-sm-4"><i class="fa-solid fa-check text-success me-2"></i>Desembaçador Traseiro</div>
+                    </div>
+                </section>
+
+                <!-- Seção: Informações do vendedor (agência) -->
+                <section class="bg-white p-4 rounded-3 shadow-sm mb-4" aria-labelledby="titulo-vendedor">
+                    <h2 id="titulo-vendedor" class="h4 fw-bold mb-3 text-dark">Sobre o Vendedor</h2>
+                    <div class="row g-3 text-dark">
+                        <!-- Nome e localização da agência -->
+                        <div class="col-12 col-sm-6">
+                            <p class="m-0 fw-bold"><i class="fa-solid fa-shop me-2 text-muted"></i>Prime Motors</p>
+                            <p class="m-0 text-muted ps-4">São Paulo (SP)</p>
+                        </div>
+                        <!-- Tempo na plataforma e total de anúncios -->
+                        <div class="col-12 col-sm-6 border-start-sm">
+                            <p class="m-0 small text-muted"><i class="fa-solid fa-medal me-2 text-warning"></i>Desde 07/2025 no NFSCars</p>
+                            <p class="m-0 small text-muted ps-4">Anunciou 787 vezes na plataforma</p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- ---- COLUNA DIREITA: Formulário de contato (4 colunas) ----
+                 sticky-top: mantém o card visível enquanto o usuário rola a página -->
+            <div class="col-12 col-lg-4">
+                <aside class="bg-white p-4 rounded-3 shadow-sm sticky-top" style="top: 20px;" aria-labelledby="titulo-contato">
+                    <!-- Preço do veículo em destaque -->
+                    <div class="mb-3">
+                        <span class="text-muted small d-block fs-5">Preço do veículo</span>
+                        <h2 id="titulo-contato" class="preco fw-bold text-primary m-0 fs-3">R$ 83.900</h2>
+                    </div>
+
+                    <p class="text-muted small mb-4">Envie uma mensagem ao vendedor</p>
+
+                    <!-- Formulário de contato com o vendedor -->
+                    <form>
+                        <div class="mb-3">
+                            <label for="inputNome" class="form-label small fw-bold text-muted">Nome*</label>
+                            <input type="text" class="form-control py-2" id="inputNome" aria-required="true">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputTelefone" class="form-label small fw-bold text-muted">Telefone*</label>
+                            <input type="tel" class="form-control py-2" id="inputTelefone" placeholder="(11) 99999-9999" aria-required="true">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label small fw-bold text-muted">Email*</label>
+                            <input type="email" class="form-control py-2" id="inputEmail" aria-required="true">
+                        </div>
+                        <div class="mb-3">
+                            <label for="txtMensagem" class="form-label small fw-bold text-muted">Mensagem*</label>
+                            <!-- Mensagem pré-preenchida para facilitar o contato -->
+                            <textarea class="form-control" id="txtMensagem" rows="4" aria-required="true">Olá, tenho interesse no veículo. Por favor entre em contato.</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-search w-100 py-3 mt-2">Enviar Mensagem</button>
+                    </form>
+                </aside>
+            </div>
+
+        </div>
+
+        <!-- ---- VITRINE: Mais anúncios do mesmo vendedor ----
+             Exibe até 4 cards de outros veículos da mesma agência -->
+        <section class="mt-5" aria-labelledby="titulo-vitrine">
+            <h2 id="titulo-vitrine" class="h4 fw-bold mb-4 text-dark">Mais Anúncios Desse Vendedor</h2>
+
+            <div class="row g-3">
+                <!-- Os 4 cards abaixo usam o mesmo componente car-card do index.html -->
+                <div class="col-12 col-sm-6 col-md-3">
+                    <article class="car-card">
+                        <div class="position-relative">
+                            <button class="favorite-icon border-0" aria-label="Favoritar Chevrolet Onix"><i class="fa-regular fa-heart"></i></button>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/2022_Chevrolet_Onix_Turbo_LTZ_%28Chile%29_front_view_%28cropped%29.jpg" class="img-fluid w-100" alt="Chevrolet Onix Branco" loading="lazy">
+                        </div>
+                        <div class="p-3">
+                            <h3 class="h5 fw-bold mb-1 text-dark">Chevrolet Onix</h3>
+                            <p class="text-muted small mb-2">1.4 manual</p>
+                            <div class="row text-muted small g-2 mb-3">
+                                <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2024/2025</div>
+                                <div class="col-6 text-end"><i class="fa-solid fa-gauge me-1"></i> 39.800 KM</div>
+                                <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> São Paulo (SP)</div>
+                            </div>
+                            <div class="border-top pt-2">
+                                <span class="fw-bold text-primary fs-5">R$ 289.900</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <article class="car-card">
+                        <div class="position-relative">
+                            <button class="favorite-icon border-0" aria-label="Favoritar Chevrolet Onix"><i class="fa-regular fa-heart"></i></button>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/2022_Chevrolet_Onix_Turbo_LTZ_%28Chile%29_front_view_%28cropped%29.jpg" class="img-fluid w-100" alt="Chevrolet Onix Branco" loading="lazy">
+                        </div>
+                        <div class="p-3">
+                            <h3 class="h5 fw-bold mb-1 text-dark">Chevrolet Onix</h3>
+                            <p class="text-muted small mb-2">1.4 manual</p>
+                            <div class="row text-muted small g-2 mb-3">
+                                <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2024/2025</div>
+                                <div class="col-6 text-end"><i class="fa-solid fa-gauge me-1"></i> 39.800 KM</div>
+                                <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> São Paulo (SP)</div>
+                            </div>
+                            <div class="border-top pt-2">
+                                <span class="fw-bold text-primary fs-5">R$ 289.900</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <article class="car-card">
+                        <div class="position-relative">
+                            <button class="favorite-icon border-0" aria-label="Favoritar Chevrolet Onix"><i class="fa-regular fa-heart"></i></button>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/2022_Chevrolet_Onix_Turbo_LTZ_%28Chile%29_front_view_%28cropped%29.jpg" class="img-fluid w-100" alt="Chevrolet Onix Branco" loading="lazy">
+                        </div>
+                        <div class="p-3">
+                            <h3 class="h5 fw-bold mb-1 text-dark">Chevrolet Onix</h3>
+                            <p class="text-muted small mb-2">1.4 manual</p>
+                            <div class="row text-muted small g-2 mb-3">
+                                <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2024/2025</div>
+                                <div class="col-6 text-end"><i class="fa-solid fa-gauge me-1"></i> 39.800 KM</div>
+                                <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> São Paulo (SP)</div>
+                            </div>
+                            <div class="border-top pt-2">
+                                <span class="fw-bold text-primary fs-5">R$ 289.900</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-3">
+                    <article class="car-card">
+                        <div class="position-relative">
+                            <button class="favorite-icon border-0" aria-label="Favoritar Chevrolet Onix"><i class="fa-regular fa-heart"></i></button>
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/2022_Chevrolet_Onix_Turbo_LTZ_%28Chile%29_front_view_%28cropped%29.jpg" class="img-fluid w-100" alt="Chevrolet Onix Branco" loading="lazy">
+                        </div>
+                        <div class="p-3">
+                            <h3 class="h5 fw-bold mb-1 text-dark">Chevrolet Onix</h3>
+                            <p class="text-muted small mb-2">1.4 manual</p>
+                            <div class="row text-muted small g-2 mb-3">
+                                <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2024/2025</div>
+                                <div class="col-6 text-end"><i class="fa-solid fa-gauge me-1"></i> 39.800 KM</div>
+                                <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> São Paulo (SP)</div>
+                            </div>
+                            <div class="border-top pt-2">
+                                <span class="fw-bold text-primary fs-5">R$ 289.900</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =====================================================================
+         FOOTER — Padrão das páginas públicas
+         ===================================================================== -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-12 col-md-3">
+                    <div class="d-flex align-items-center gap-2 mb-2">
+                        <img src="img/logo-footer.png" alt="Logo NFSCars" class="img-fluid">
+                        <span class="fw-bold fs-4 text-white"><span>NFS</span>Cars</span>
+                    </div>
+                    <p class="text-white-50 small">Marketplace de veículos com agências verificadas.</p>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h4 class="fw-bold text-white mb-3">Sobre nós</h4>
+                    <p class="text-white-50 small mb-2">Saiba mais sobre nossa história, missão e valores.</p>
+                    <a href="sobre.html" class="text-info small fw-semibold">Conheça a NFSCars <i
+                            class="fa-solid fa-chevron-right small"></i></a>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h4 class="fw-bold text-white mb-3">Ajuda</h4>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><a href="login.html"><i class="fa-solid fa-chevron-right me-1 text-white-50" style="font-size:10px;"></i> Central de ajuda</a></li>
+                        <li><a href="cadastroVeiculo.html"><i class="fa-solid fa-chevron-right me-1 text-white-50" style="font-size:10px;"></i> Como anunciar</a></li>
+                        <li><a href="admin.html"><i class="fa-solid fa-chevron-right me-1 text-white-50" style="font-size:10px;"></i> Segurança</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-chevron-right me-1 text-white-50" style="font-size:10px;"></i> Política de privacidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <h4 class="fw-bold text-white mb-3">Contato</h4>
+                    <p class="text-white-50 small mb-2"><i class="fa-solid fa-phone me-2 text-info"></i> (11) 99999-9999</p>
+                    <p class="text-white-50 small"><i class="fa-solid fa-envelope me-2 text-info"></i> contato@nfscars.com</p>
+                </div>
+
+                <div class="col-12 col-md-2 text-md-end">
+                    <h4 class="fw-bold text-white mb-3">Redes Sociais</h4>
+                    <div class="d-flex gap-3 justify-content-md-end">
+                        <a href="index.html" class="text-white fs-4" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="index.html" class="text-white fs-4" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-white-50 small">
+                © 2026 ABIGAIU PORTO | BRUNO HENRIQUE | VANESSA ROSA Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="meu.js"></script>
+</body>
+
+</html>

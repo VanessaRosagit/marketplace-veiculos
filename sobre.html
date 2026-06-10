@@ -1,0 +1,480 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFSCars - Sobre Nós</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/meu.css">
+    <!-- Script de acessibilidade com defer para não bloquear a renderização -->
+    <script src="./meu.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Skip link: pula navbar e vai direto ao conteúdo (acessibilidade por teclado) -->
+    <a href="#conteudo-principal" class="skip-link visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 m-2">
+        Pular para o conteúdo principal
+    </a>
+
+    <!-- =====================================================================
+         BARRA DE ACESSIBILIDADE — flutuante, controlada pelo meu.js
+         ===================================================================== -->
+    <div id="barra-acessibilidade" role="region" aria-label="Ferramentas de Acessibilidade"
+         class="position-fixed top-50 end-0 translate-middle-y me-3 d-flex flex-column shadow overflow-hidden" style="z-index: 1050;">
+        <button id="aumentarFonte" class="btn btn-primary rounded-top" aria-label="Aumentar tamanho do texto"> A+ </button>
+        <button id="diminuirFonte" class="btn btn-primary" aria-label="Diminuir tamanho do texto"> A- </button>
+        <button id="resetar" class="btn btn-secondary" aria-label="Resetar tamanho do texto"> 
+            <i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i>
+        </button>
+        <button id="contraste" class="btn btn-dark rounded-bottom" aria-label="Alternar alto contraste"> 
+            <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i> 
+        </button>
+    </div>
+<header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3" aria-label="Navegação Principal">
+            <div class="container">
+                <!-- Logotipo à esquerda -->
+                <a class="navbar-brand d-flex align-items-center fw-bold fs-3 text-white" href="index.html">
+                    <img src="img/Logo.png" alt="Logotipo NFSCars" class="me-2">
+                    <span>NFS<span class="text-primary">Cars</span></span>
+                </a>
+
+                <!-- Botão Hamburger para Mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar menu de navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Itens alinhados à direita com espaçamento expandido -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center ms-auto gap-5 mt-3 mt-lg-0">
+                        
+                        <!-- Links do Menu (Espaçamento maior entre eles) -->
+                        <ul class="navbar-nav flex-row flex-wrap gap-5 mb-0">
+                            <li class="nav-item"><a class="nav-link text-white fw-medium p-0" href="index.html">Comprar</a></li>
+                            <li class="nav-item"><a class="nav-link text-white fw-medium p-0" href="cadastroVeiculo.html">Vender</a></li>
+                            <li class="nav-item"><a class="nav-link text-white fw-medium p-0" href="lojista.html">Lojas</a></li>
+                            <li class="nav-item"><a class="nav-link active fw-medium p-0" href="sobre.html" aria-current="page">Sobre</a></li>
+                        </ul>
+
+                        <!-- Ícone de Favoritos (Coração) -->
+                        <a href="login.html" class="text-white fs-5 d-flex align-items-center text-decoration-none mx-lg-2" aria-label="Meus Favoritos">
+                            <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                        </a>
+
+                        <!-- Botão Entrar -->
+                        <a href="login.html" class="btn btn-outline-light px-4 py-2 d-inline-flex align-items-center gap-2 rounded-3 text-decoration-none fw-medium ms-lg-2">
+                            <i class="fa-regular fa-user" aria-hidden="true"></i> Entrar
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- id + tabindex="-1": permite que o skip link mova o foco para o conteúdo -->
+    <main id="conteudo-principal" tabindex="-1">
+        <!-- Seção Hero -->
+        <section class="text-center py-5 px-3 hero-bg-imagem" aria-label="Apresentação institucional">
+            <div class="container py-3 py-md-5">
+                <span class="text-primary fw-bold text-uppercase small d-block mb-2 fs-2">Conheça a NFSCars</span>
+                <h1 class="fw-bold mb-3 text-dark mx-auto display-6">A Plataforma que Transforma a Experiência de Compra de Carros</h1>
+                <p class="text-muted mx-auto fs-5 text-secondary">
+                    Soluções completas e inteligentes para agências que querem vender mais, com segurança, velocidade e melhor gestão.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção História, Missão e Valores -->
+        <section class="container my-5" aria-label="Nossa história e diretrizes">
+            <div class="row g-4">
+                <div class="col-12 col-md-4">
+                    <div class="card p-4 border rounded-3 bg-white h-100 shadow-sm">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fa-solid fa-clock-rotate-left text-primary fs-3" aria-hidden="true"></i>
+                            <h2 class="fs-5 fw-bold text-dark ps-3 m-0">Nossa História</h2>
+                        </div>
+                        <p class="text-muted small ps-5 fs-6">Desde 2018, conectando as melhores agências de veículos a milhares de compradores.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card p-4 border rounded-3 bg-white h-100 shadow-sm">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fa-solid fa-bullseye fs-3 text-primary" aria-hidden="true"></i>
+                            <h2 class="fs-5 fw-bold text-dark ps-3 m-0">Nossa Missão</h2>
+                        </div>
+                        <p class="text-muted small ps-5 fs-6">Facilitar e autenticar a busca e negociação, transformando a experiência de compra de carros.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="card p-4 border rounded-3 bg-white h-100 shadow-sm">
+                        <div class="d-flex align-items-center gap-2 mb-2">
+                            <i class="fa-solid fa-handshake text-primary fs-3" aria-hidden="true"></i>
+                            <h2 class="fs-5 fw-bold text-dark ps-3 m-0">Nossos Valores</h2>
+                        </div>
+                        <p class="text-muted small ps-5 fs-6">Transparência, Confiança, Inovação e Foco no Cliente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Estatísticas -->
+        <section class="container my-5" aria-labelledby="estatisticas-site">
+            <h2 id="estatisticas-site" class="visually-hidden">Estatísticas da plataforma</h2>
+
+            <div class="row g-0 rounded-3 shadow-sm text-center p-3 p-md-4 bg-estatisticas">
+                <div class="col-6 col-md-3 py-3 border-end border-secondary">
+                    <div class="fs-3 fw-bold text-primary">
+                        <i class="fa-regular fa-square-check me-2" aria-hidden="true"></i>
+                        <span>8.250+</span>
+                    </div>
+                    <p class="mb-0 text-dark fs-6">Anúncios Verificados</p>
+                </div>
+
+                <div class="col-6 col-md-3 py-3 border-end border-secondary">
+                    <div class="fs-3 fw-bold text-primary">
+                        <i class="fa-solid fa-store me-2" aria-hidden="true"></i>
+                        <span>600+</span>
+                    </div>
+                    <p class="mb-0 text-dark fs-6">Lojas Parceiras</p>
+                </div>
+
+                <div class="col-6 col-md-3 py-3 border-end border-secondary">
+                    <div class="fs-3 fw-bold text-primary">
+                        <i class="fa-regular fa-user me-2" aria-hidden="true"></i>
+                        <span>1.500+</span>
+                    </div>
+                    <p class="mb-0 text-dark fs-6">Leads Gerados</p>
+                </div>
+
+                <div class="col-6 col-md-3 py-3">
+                    <div class="fs-3 fw-bold text-primary">
+                        <span>98%</span>
+                    </div>
+                    <p class="mb-0 text-dark fs-6">Satisfação</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Depoimentos -->
+        <section class="container my-5 py-2" aria-labelledby="titulo-depoimentos">
+            <h2 id="titulo-depoimentos" class="fs-4 fw-bold text-center mb-4 text-dark px-3">
+                O que as <span class="text-primary">Agências</span> Dizem Sobre a <span class="text-primary">NFS</span>Cars
+            </h2>
+            
+            <div class="row g-4">
+                <!-- CARD 1: CARLOS MENDES -->
+                <div class="col-12 col-md-4">
+                    <div class="card p-4 border rounded-3 bg-white h-100 shadow-sm d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="img/auto-prime.png" alt="logo Auto Prime" class="rounded-circle">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <strong class="text-dark d-block fw-bold fs-5 lh-sm">Carlos Mendes</strong>
+                                    <span class="text-muted small lh-sm">Auto Prime</span>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3 fs-6">
+                                "A NFSCars aumentou nossos leads qualificados e facilitou toda a gestão da loja. Hoje vendemos mais e com muito mais controle."
+                            </p>
+                        </div>
+                        <div class="text-warning small" aria-label="Avaliação: 5 de 5 estrelas" role="img">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: MARIANA SOUZA -->
+                <div class="col-12 col-md-4">
+                    <div class="card p-4 border rounded-3 bg-white h-100 shadow-sm d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="img/diamond-motors.png" alt="logo DIAMOND MOTORS" class="rounded-circle">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <strong class="text-dark d-block fw-bold fs-5 lh-sm">Mariana Souza</strong>
+                                    <span class="text-muted small lh-sm">Diamond Motors</span>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3 fs-6">
+                                "A plataforma é intuitiva, rápida e trouxe mais credibilidade para nossos anúncios. O suporte é excelente."
+                            </p>
+                        </div>
+                        <div class="text-warning small" aria-label="Avaliação: 5 de 5 estrelas" role="img">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 3: RICARDO LIMA -->
+                <div class="col-12 col-md-4">
+                    <div class="card p-4 border rounded-3 bg-white h-100 shadow-sm d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <img src="img/urban-motors.png" alt="LOGO URBAN MOTOS" class="rounded-circle">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <strong class="text-dark d-block fw-bold fs-5 lh-sm">Ricardo Lima</strong>
+                                    <span class="text-muted small lh-sm">Urban Motors</span>
+                                </div>
+                            </div>
+                            <p class="text-muted mb-3 fs-6">
+                                "Hoje conseguimos acompanhar métricas, negociações e clientes em um único sistema. Mudou totalmente a nossa rotina."
+                            </p>
+                        </div>
+                        <div class="text-warning small" aria-label="Avaliação: 5 de 5 estrelas" role="img">
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                            <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indicadores do Carrossel Dinâmico -->
+            <div class="text-center mt-4 gap-1 d-flex justify-content-center" role="group" aria-label="Controles dos depoimentos">
+                <button class="dot-carousel btn p-0 active" aria-label="Ir para o slide 1" aria-current="true"></button>
+                <button class="dot-carousel btn p-0" aria-label="Ir para o slide 2"></button>
+                <button class="dot-carousel btn p-0" aria-label="Ir para o slide 3"></button>
+            </div>
+        </section>
+
+        <!-- Seção Por que escolher -->
+        <section class="container my-5" aria-labelledby="titulo-por-que-escolher">
+            <h2 id="titulo-por-que-escolher" class="fs-3 fw-bold text-center mb-4 text-dark">
+                Por que escolher a <span class="text-primary">NFS</span>Cars
+            </h2>
+            
+            <div class="row g-3">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card p-3 border rounded-3 bg-white h-100 shadow-sm">
+                        <h3 class="fs-5 fw-bold text-dark mb-2">Gestão Completa</h3>
+                        <p class="text-secondary m-0 fs-6">Controle veículos, leads, vendas e clientes em um único painel.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card p-3 border rounded-3 bg-white h-100 shadow-sm">
+                        <h3 class="fs-5 fw-bold text-dark mb-2">Mais Conversões</h3>
+                        <p class="text-secondary m-0 fs-6">Ferramentas inteligentes para aumentar suas oportunidades de vendas.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card p-3 border rounded-3 bg-white h-100 shadow-sm">
+                        <h3 class="fs-5 fw-bold text-dark mb-2">Segurança e Confiança</h3>
+                        <p class="text-secondary m-0 fs-6">Anúncios verificados e proteção durante todas as negociações.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="card p-3 border rounded-3 bg-white h-100 shadow-sm">
+                        <h3 class="fs-5 fw-bold text-dark mb-2">Automação</h3>
+                        <p class="text-secondary m-0 fs-6">Economize tempo com processos automatizados e relatórios em tempo real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Recursos e Métricas -->
+        <section class="container my-5 py-3" aria-label="Recursos e Métricas da Plataforma">
+            <div class="row g-4 g-lg-5 align-items-start">
+                <div class="col-12 col-md-5">
+                    <h2 class="fs-2 fw-bold mb-4 text-dark lh-sm">
+                        Uma Plataforma Completa<br>Para sua <span class="text-primary">Agência</span>
+                    </h2>
+                    
+                    <ul class="list-unstyled d-flex flex-column gap-3 text-dark fs-6 fw-normal">
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-primary fs-4" aria-hidden="true"></i> 
+                            <span>Anúncios ilimitados e verificados</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-primary fs-4" aria-hidden="true"></i> 
+                            <span>Gestão de leads e negociações</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-primary fs-4" aria-hidden="true"></i> 
+                            <span>Relatórios e dashboards avançados</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-primary fs-4" aria-hidden="true"></i> 
+                            <span>Integração com WhatsApp e marketplaces</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="col-12 col-md-7" role="region" aria-label="Painel de Métricas do Sistema">
+                    <h3 class="fs-3 fw-bold text-dark mb-4">Métricas do Sistema</h3>
+                    
+                    <div class="row g-3">
+                        <div class="col-12 col-sm-6">
+                            <div class="card p-3 border bg-white rounded-3 shadow-sm text-center" 
+                                 role="group" aria-label="Métrica de Leads: 1250 ativos, aumento de 18% em relação ao mês anterior">
+                                <span class="text-secondary d-block mb-3 fs-6">Leads</span>
+                                <div class="d-flex align-items-baseline justify-content-center gap-3 mb-3">
+                                    <strong class="fs-2 text-dark fw-bold m-0 lh-1">1250</strong>
+                                    <span class="text-success fw-normal fs-6 text-opacity-75">+ 18%</span>
+                                </div>
+                                <span class="text-dark small d-block">vs mês anterior</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-sm-6">
+                            <div class="card p-3 border bg-white rounded-3 shadow-sm text-center"
+                                 role="group" aria-label="Métrica de Negociações: 320 em andamento, aumento de 12% em relação ao mês anterior">
+                                <span class="text-secondary d-block mb-3 fs-6">Negociações</span>
+                                <div class="d-flex align-items-baseline justify-content-center gap-3 mb-3">
+                                    <strong class="fs-2 text-dark fw-bold m-0 lh-1">320</strong>
+                                    <span class="text-success fw-normal fs-6 text-opacity-75">+ 12%</span>
+                                </div>
+                                <span class="text-dark small d-block">vs mês anterior</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-sm-6">
+                            <div class="card p-3 border bg-white rounded-3 shadow-sm text-center"
+                                 role="group" aria-label="Métrica de Vendas: 210 concretizadas, aumento de 15% em relação ao mês anterior">
+                                <span class="text-secondary d-block mb-3 fs-6">Vendas</span>
+                                <div class="d-flex align-items-baseline justify-content-center gap-3 mb-3">
+                                    <strong class="fs-2 text-dark fw-bold m-0 lh-1">210</strong>
+                                    <span class="text-success fw-normal fs-6 text-opacity-75">+ 15%</span>
+                                </div>
+                                <span class="text-dark small d-block">vs mês anterior</span>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-sm-6">
+                            <div class="card p-3 border bg-white rounded-3 shadow-sm text-center"
+                                 role="group" aria-label="Métrica de Faturamento: R$ 2,4 milhões, aumento de 22% em relação ao mês anterior">
+                                <span class="text-secondary d-block mb-3 fs-6">Faturamento</span>
+                                <div class="d-flex align-items-baseline justify-content-center gap-3 mb-3">
+                                    <strong class="fs-2 text-dark fw-bold m-0 lh-1">R$ 2,4M</strong>
+                                    <span class="text-success fw-normal fs-6 text-opacity-75">+ 22%</span>
+                                </div>
+                                <span class="text-dark small d-block">vs mês anterior</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção CTA (Call To Action) — bloco azul incentivando o cadastro -->
+        <section class="container my-5" aria-label="Chamada para ação">
+            <div class="text-white bg-primary p-4 p-md-5 d-flex flex-column flex-md-row justify-content-between align-items-center gap-4 shadow-sm rounded-3">
+                <div class="d-flex flex-column flex-sm-row align-items-center gap-4 text-center text-sm-start">
+                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center flex-shrink-0 p-3 fs-3" style="width: 60px; height: 60px;">
+                        <i class="fa-regular fa-paper-plane text-primary" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <h2 class="fw-bold m-0 mb-2 fs-4 text-white">Pronto para vender mais e gerir melhor?</h2>
+                        <p class="m-0 text-white text-opacity-75 fs-6 w-100 lh-base">
+                            Junte-se a centenas de agências que já transformaram seus resultados com a NFSCars.
+                        </p>
+                    </div>
+                </div>
+                <a href="cadastro.html" class="btn btn-light text-primary px-4 py-3 text-nowrap fw-bold fs-5 shadow-sm border-0 d-flex align-items-center justify-content-center gap-3 w-75 w-md-auto rounded-3">
+                    Comece Agora 
+                    <i class="fa-solid fa-arrow-right fs-5" aria-hidden="true"></i>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- =====================================================================
+         FOOTER — Rodapé da página Sobre (usa bg-dark ao invés da classe customizada)
+         ===================================================================== -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container">
+            <div class="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 justify-content-between">
+                
+                <div class="col">
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <img src="img/logo-footer.png" alt="Logotipo alternativo NFSCars" class="img-fluid">
+                            <span class="fw-bold fs-3 text-white"><span class="text-primary">NFS</span>Cars</span>
+                        </div>
+                    </div>
+                    <p class="text-white-50 fs-6 lh-base m-0">
+                        Marketplace de veículos com agências verificadas.
+                    </p>
+                </div>
+
+                <div class="col">
+                    <nav aria-label="Menu Institucional">
+                        <h3 class="fw-bold fs-5 text-white mb-3 pb-1 border-bottom border-primary border-2 d-inline-block">Sobre nós</h3>
+                        <p class="text-white-50 small mb-3">
+                            Saiba mais sobre nossa história, missão e values.
+                        </p>
+                        <a href="sobre.html" class="text-primary small fw-semibold text-decoration-none d-block" aria-label="Conheça mais detalhes sobre a empresa NFSCars">
+                            Conheça a NFSCars
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="col">
+                    <nav aria-label="Menu de Ajuda e Suporte">
+                        <h3 class="fw-bold fs-5 text-white mb-3 pb-1 border-bottom border-primary border-2 d-inline-block">Ajuda</h3>
+                        <ul class="list-unstyled small d-flex flex-column gap-2">
+                            <li><a href="login.html" class="text-white-50 text-decoration-none">Central de ajuda</a></li>
+                            <li><a href="cadastroVeiculo.html" class="text-white-50 text-decoration-none">Como anunciar</a></li>
+                            <li><a href="admin.html" class="text-white-50 text-decoration-none">Segurança</a></li>
+                            <li><a href="sobre.html" class="text-white-50 text-decoration-none">Política de privacidade</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col">
+                    <nav aria-label="Informações de Contato">
+                        <h3 class="fw-bold fs-5 text-white mb-3 pb-1 border-bottom border-primary border-2 d-inline-block">Contato</h3>
+                        <ul class="list-unstyled small d-flex flex-column gap-2 text-white-50">
+                            <li class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-phone text-primary" aria-hidden="true"></i>
+                                <span>(11) 99999-9999</span>
+                            </li>
+                            <li class="d-flex align-items-center gap-2">
+                                <i class="fa-solid fa-envelope text-primary" aria-hidden="true"></i>
+                                <span class="text-break">contato@nfscars.com</span>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="col">
+                    <nav aria-label="Redes Sociais Oficiais">
+                        <h3 class="fw-bold fs-5 text-white mb-3 pb-1 border-bottom border-primary border-2 d-inline-block">Redes Sociais</h3>
+                        <div class="d-flex gap-3">
+                            <a href="index.html" class="text-primary fs-3 text-decoration-none" aria-label="Ir para a nossa página oficial do Facebook">
+                                <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                            </a>
+                            <a href="index.html" class="text-primary fs-3 text-decoration-none" aria-label="Ir para o nosso perfil oficial do Instagram">
+                                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+
+            <div class="row mt-5 pt-3 border-top border-secondary">
+                <div class="col-12 text-center text-white-50 small">
+                    <small>&copy; 2026 ABIGAIU PORTO | BRUNO HENRIQUE | VANESSA ROSA. Todos os direitos reservados.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

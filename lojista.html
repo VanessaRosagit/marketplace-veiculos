@@ -1,0 +1,523 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFSCars - Painel Auto Prime</title>
+    <!-- Bootstrap CSS v5.3 -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Estilos personalizados do projeto -->
+    <link rel="stylesheet" href="styles/meu.css">
+    <!-- Script de acessibilidade carregado com defer para não bloquear o HTML -->
+     <script src="./meu.js" defer></script>
+</head>
+
+<body >
+    <!-- Skip Link: permite que usuários de teclado/leitor de tela pulem direto para o conteúdo,
+         ignorando a navbar. Só fica visível ao receber foco (visually-hidden-focusable). -->
+<a href="#conteudo-principal" class="skip-link visually-hidden-focusable btn btn-primary position-absolute top-0 start-0 m-2">
+    Pular para o conteúdo principal
+</a>
+
+<!-- =====================================================================
+     BARRA DE FERRAMENTAS DE ACESSIBILIDADE
+     Flutuante no lado direito; botões controlados pelo meu.js
+     ===================================================================== -->
+<section id="barra-acessibilidade"
+         class="position-fixed top-50 end-0 translate-middle-y me-3 d-flex flex-column shadow overflow-hidden" 
+         aria-label="Ferramentas de acessibilidade">
+
+    <button id="aumentarFonte"
+            class="btn btn-primary rounded-top" 
+            aria-label="Aumentar tamanho do texto"> A+
+    </button>
+
+    <button id="diminuirFonte"
+            class="btn btn-primary" 
+            aria-label="Diminuir tamanho do texto"> A-
+    </button>
+
+    <button id="resetar"
+            class="btn btn-secondary" 
+            aria-label="Resetar tamanho do texto para o padrão">
+        <i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i>
+    </button>
+
+    <button id="contraste"
+            class="btn btn-dark rounded-bottom" 
+            aria-label="Alternar modo de alto contraste">
+        <i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>
+    </button>
+
+</section>
+
+    <!-- =====================================================================
+         HEADER / NAVBAR — Barra da área interna da agência
+         ===================================================================== -->
+ <header>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3" aria-label="Navegação Principal">
+        <div class="container-fluid px-4">
+            <a class=" d-flex align-items-center fw-bold fs-3 text-white" href="index.html" aria-label="Auto Prime - Página Inicial">
+                <img src="img/logoAutoPrime.png" alt="Logotipo da Agência Auto Prime">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar menu de navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav mb-2 mb-lg-0 gap-4 fs-5 align-items-center">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold text-white d-flex align-items-center gap-2" href="lojista.html" aria-current="page">
+                            <i class="fa-regular fa-folder-open" aria-hidden="true"></i> Meu Estoque
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex align-items-center gap-2" href="visualizacao.html" aria-label="Mensagens. Você possui 3 mensagens não lidas">
+                            <i class="fa-regular fa-comment-dots" aria-hidden="true"></i> Mensagens 
+                            <span class="badge bg-light text-dark bg-opacity-75 fs-7 py-1 px-2" aria-hidden="true">3</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex align-items-center gap-2" href="cadastro.html">
+                            <i class="fa-regular fa-user" aria-hidden="true"></i> Meu Perfil
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white d-flex align-items-center gap-2" href="login.html">
+                            <i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i> Sair
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- =====================================================================
+         CONTEÚDO PRINCIPAL
+         id="conteudo-principal" é o destino do skip link de acessibilidade.
+         tabindex="-1" permite que o foco seja movido para cá programaticamente.
+         Layout: 9 colunas (stats + tabela) + 3 colunas (sidebar de info)
+         ===================================================================== -->
+    <main id="conteudo-principal" tabindex="-1" class="container-fluid px-4 my-5">
+        
+        <div class="row mb-4 align-items-end">
+    <div class="col-12 col-md-8">
+        <h1 class="fs-2 mb-1" tabindex="0">Bem Vinda, Agência <span class="text-primary fw-semibold">Auto Prime</span></h1>
+        <p class="text-muted m-0">Acompanhe o desempenho dos seus anúncios, e gerencie seu estoque</p>
+    </div>
+    <div class="col-12 col-md-4 text-md-end mt-3 mt-md-0">
+        <a href="cadastroVeiculo.html" class="btn btn-primary px-4 py-2 fw-semibold" role="button">
+            <i class="fa-solid fa-plus me-2" aria-hidden="true"></i> Cadastrar Veículos
+        </a>
+    </div>
+</div>
+
+        <div class="row g-4">
+            
+            <!-- ---- COLUNA PRINCIPAL (9/12): estatísticas e tabela de veículos ---- -->
+            <div class="col-12 col-xl-9">
+                
+                <!-- ---- CARDS DE ESTATÍSTICAS: 4 KPIs da agência ---- -->
+            <section class="row g-3 mb-4" aria-label="Resumo estatístico do estoque e desempenho">
+    
+    <section class="col-12 col-sm-6 col-md-3">
+        <section class="card p-3 border rounded-3 bg-white h-100 shadow-sm" tabindex="0" aria-labelledby="titulo-veiculos-ativos">
+            <div class="d-flex align-items-center gap-2 text-muted small mb-1 fs-5">
+                <i class="fa-solid fa-car text-primary fs-3" aria-hidden="true"></i> 
+                <h2 id="titulo-veiculos-ativos" class="fs-5 ps-2 m-0 text-muted fw-normal">Veículos Ativos</h2>
+            </div>
+            <div>
+                <p class="fs-4 fw-bold text-dark ps-5 mb-0">8</p>
+                <span class="fs-5 ps-5 fw-normal text-muted">de 15 disponíveis</span>
+            </div>
+            <span class="text-primary small ps-5 fs-7">7 pausados</span>
+        </section>
+    </section>
+
+    <section class="col-12 col-sm-6 col-md-3">
+    <section class="card p-3 border rounded-3 bg-white h-100 shadow-sm" tabindex="0" aria-labelledby="titulo-visualizacoes">
+        
+        <div class="d-flex align-items-center gap-3 mb-1">
+            <div class="d-flex align-items-center justify-content-center bg-primary bg-opacity-10 rounded-circle flex-shrink-0 stat-icon-circle" aria-hidden="true">
+                <i class="fa-regular fa-eye text-primary fs-5"></i>
+            </div>
+            <h2 id="titulo-visualizacoes" class="fs-6 m-0 text-dark fw-normal">Visualização do Mês</h2>
+        </div>
+
+        <div class="fs-4 fw-bold text-dark mb-1 ps-5">1.248</div>
+
+        <div class="d-flex justify-content-between align-items-end mt-auto ps-5">
+            <p class="text-primary small m-0 lh-sm col-9">
+                18% em relação ao mês anterior
+            </p>
+            
+            <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+
+   <span class="visually-hidden">Indicador de crescimento: 18%</span>
+        </div>
+
+    </section>
+</section>
+
+    <section class="col-12 col-sm-6 col-md-3">
+        <section class="card p-3 border rounded-3 bg-white h-100 shadow-sm" tabindex="0" aria-labelledby="titulo-mensagens-card">
+            <div class="d-flex align-items-center gap-2 text-muted small mb-1 fs-5">
+                <i class="fa-regular fa-envelope text-primary fs-3 mt-1" aria-hidden="true"></i>
+                <h2 id="titulo-mensagens-card" class="fs-5 ps-2 mt-1 m-0 text-muted fw-normal">Mensagens</h2>
+            </div>
+            <div class="fs-4 fw-bold text-dark ps-5">12</div>
+            <span class="text-primary small ps-5 fs-6 p-2">3 não lidas</span>
+        </section>
+    </section>
+
+    <section class="col-12 col-sm-6 col-md-3">
+        <section class="card p-3 border rounded-3 bg-white h-100 shadow-sm" tabindex="0" aria-labelledby="titulo-status-plano">
+            <div class="d-flex align-items-center gap-2 text-muted small mb-1">
+                <i class="fa-regular fa-id-card text-primary fs-3" aria-hidden="true"></i>
+                <h2 id="titulo-status-plano" class="fs-5 ps-2 m-0 text-muted fw-normal">Status do Plano</h2>
+            </div>
+            <div class="fs-5 fw-bold text-dark ps-5 p-2">Profissional</div>
+            <span class="text-muted small fs-6 ps-5">Renova em 15-07-2026</span>
+        </section>
+    </section>
+
+</section>
+
+                <section class="card p-4 border rounded-3 bg-white shadow-sm" aria-labelledby="titulo-meus-veiculos">
+    
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 id="titulo-meus-veiculos" class="fs-5 fw-bold m-0">Meus Veículos</h2>
+
+        <div class="d-flex align-items-center gap-2" role="search" aria-label="Filtros do estoque">
+            <div class="input-group input-group-sm w-auto">
+                <input type="text" class="form-control" placeholder="Buscar veículo" aria-label="Buscar veículo por modelo ou marca">
+                <span class="input-group-text bg-white" aria-hidden="true">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+            </div>
+
+            <select class="form-select form-select-sm w-auto" aria-label="Filtrar por Status">
+                <option value="todos">Status: Todos</option>
+                <option value="ativos">Ativos</option>
+                <option value="pausados">Pausados</option>
+            </select>
+
+            <select class="form-select form-select-sm w-auto" aria-label="Ordenação dos veículos">
+                <option value="recentes">Mais recentes</option>
+                <option value="preco-menor">Menor preço</option>
+                <option value="preco-maior">Maior preço</option>
+            </select>
+        </div>
+    </div>
+
+    <section class="table-responsive" tabindex="0" aria-label="Tabela de veículos cadastrados (Navegue com as setas do teclado se necessário)">
+        <table class="table table-hover align-middle m-0 text-secondary">
+            <caption class="visually-hidden">Lista de veículos da agência com detalhes de ano, preço, status e visualizações</caption>
+            <thead class="table-light text-uppercase fs-7 text-muted">
+                <tr>
+                    <th scope="col" class="table-vehicle-name-col">Veículo</th>
+                    <th scope="col">Ano</th>
+                    <th scope="col">Preço</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="text-center">Visualizações</th>
+                    <th scope="col" class="text-center">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/2022_Toyota_Corolla_L_in_Classic_Silver_Metallic%2C_Front_Right%2C_03-20-2022.jpg" alt="Foto lateral do Toyota Corolla XEI" loading="lazy" style="width:80px;height:50px;object-fit:cover;">
+                            <div class="d-flex flex-column">
+                                <strong class="text-dark">Toyota Corolla XEI</strong>
+                                <span class="text-muted small">2.0 Automático</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2022/2023</td>
+                    <td class="fw-semibold text-dark">R$129.900</td>
+                    <td><span class="badge rounded-pill border border-success text-success fs-6">Ativo</span></td>
+                    <td class="text-center">320</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary fs-6" aria-label="Editar Toyota Corolla">Editar</button>
+                        <button class="btn btn-sm btn-outline-secondary fs-6" aria-label="Pausar anúncio do Toyota Corolla">Pausar</button>
+                        <button class="btn btn-link text-muted ms-1 p-1 border-0 bg-transparent" aria-label="Mais ações para Toyota Corolla">
+                            <i class="fa-solid fa-ellipsis-vertical fs-4" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/2022_Honda_Civic_Hatchback_Sport.jpg" alt="Foto lateral do Honda Civic EXL" loading="lazy" style="width:80px;height:50px;object-fit:cover;">
+                            <div class="d-flex flex-column">
+                                <strong class="text-dark d-block">Honda Civic EXL</strong>
+                                <span class="text-muted small fs-6">2.0 Automático</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2019/2019</td>
+                    <td class="fw-semibold text-dark">R$104.900</td>
+                    <td><span class="badge rounded-pill border border-success text-success fs-6">Ativo</span></td>
+                    <td class="text-center">280</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary fs-6" aria-label="Editar Honda Civic">Editar</button>
+                        <button class="btn btn-sm btn-outline-secondary fs-6" aria-label="Pausar anúncio do Honda Civic">Pausar</button>
+                        <button class="btn btn-link text-muted ms-1 p-1 border-0 bg-transparent" aria-label="Mais ações para Honda Civic">
+                            <i class="fa-solid fa-ellipsis-vertical fs-4" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/2018_Jeep_Compass_%28MP_MY18%29_Sport_wagon_%282018-05-05%29_01.jpg" alt="Foto lateral do Jeep Compass" loading="lazy" style="width:80px;height:50px;object-fit:cover;">
+                            <div class="d-flex flex-column">
+                                <strong class="text-dark d-block">Jeep Compass</strong>
+                                <span class="text-muted small fs-6">2.0 Automático</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2021/2021</td>
+                    <td class="fw-semibold text-dark">R$129.900</td>
+                    <td><span class="badge rounded-pill border border-success text-success fs-6">Ativo</span></td>
+                    <td class="text-center">412</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary fs-6" aria-label="Editar Jeep Compass">Editar</button>
+                        <button class="btn btn-sm btn-outline-secondary fs-6" aria-label="Pausar anúncio do Jeep Compass">Pausar</button>
+                        <button class="btn btn-link text-muted ms-1 p-1 border-0 bg-transparent" aria-label="Mais ações para Jeep Compass">
+                            <i class="fa-solid fa-ellipsis-vertical fs-4" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/8/83/2019_Volkswagen_T-Cross_First_Edition_TSi_1.0.jpg" alt="Foto lateral do Volkswagen T-Cross" loading="lazy" style="width:80px;height:50px;object-fit:cover;">
+                            <div class="d-flex flex-column">
+                                <strong class="text-dark d-block">Volkswagen T-Cross</strong>
+                                <span class="text-muted small fs-6">2.0 Automático</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2021/2022</td>
+                    <td class="fw-semibold text-dark">R$84.900</td>
+                    <td><span class="badge rounded-pill border border-success text-success fs-6">Ativo</span></td>
+                    <td class="text-center">320</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary fs-6" aria-label="Editar Volkswagen T-Cross">Editar</button>
+                        <button class="btn btn-sm btn-outline-secondary fs-6" aria-label="Pausar anúncio do Volkswagen T-Cross">Pausar</button>
+                        <button class="btn btn-link text-muted ms-1 p-1 border-0 bg-transparent" aria-label="Mais ações para Volkswagen T-Cross">
+                            <i class="fa-solid fa-ellipsis-vertical fs-4" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Fiat_Toro_Freedom_front_%28r%29.png" alt="Foto lateral do Fiat Toro Volcano" loading="lazy" style="width:80px;height:50px;object-fit:cover;">
+                            <div class="d-flex flex-column">
+                                <strong class="text-dark d-block">Fiat Toro Volcano 4x4</strong>
+                                <span class="text-muted small fs-6">2.0 Automático</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2022/2023</td>
+                    <td class="fw-semibold text-dark">R$119.900</td>
+                    <td><span class="badge rounded-pill border border-warning text-warning fs-6">Pausado</span></td>
+                    <td class="text-center">153</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary fs-6" aria-label="Editar Fiat Toro">Editar</button>
+                        <button class="btn btn-sm btn-outline-secondary fs-6" aria-label="Ativar anúncio do Fiat Toro">Pausar</button>
+                        <button class="btn btn-link text-muted ms-1 p-1 border-0 bg-transparent" aria-label="Mais ações para Fiat Toro">
+                            <i class="fa-solid fa-ellipsis-vertical fs-4" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Hyundai_Creta_SU2_PE_1.5_Premium_Slate_Blue_Pearl_01.jpg" alt="Foto lateral do Hyundai Creta Pulse" loading="lazy" style="width:80px;height:50px;object-fit:cover;">
+                            <div class="d-flex flex-column">
+                                <strong class="text-dark d-block">Hyundai Creta Pulse</strong>
+                                <span class="text-muted small fs-6">1.6 Automático</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2019/2020</td>
+                    <td class="fw-semibold text-dark">R$89.900</td>
+                    <td><span class="badge rounded-pill border border-success text-success fs-6">Ativo</span></td>
+                    <td class="text-center">212</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary fs-6" aria-label="Editar Hyundai Creta">Editar</button>
+                        <button class="btn btn-sm btn-outline-secondary fs-6" aria-label="Pausar anúncio do Hyundai Creta">Pausar</button>
+                        <button class="btn btn-link text-muted ms-1 p-1 border-0 bg-transparent" aria-label="Mais ações para Hyundai Creta">
+                            <i class="fa-solid fa-ellipsis-vertical fs-4" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/2021_Nissan_Kicks_%28Colombia%29_front_view_02.png" alt="Foto lateral do Nissan Kicks SV" loading="lazy" style="width:80px;height:50px;object-fit:cover;">
+                            <div class="d-flex flex-column">
+                                <strong class="text-dark d-block">Nissan Kicks SV</strong>
+                                <span class="text-muted small fs-6">1.6 Automático</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2019/2020</td>
+                    <td class="fw-semibold text-dark">R$69.900</td>
+                    <td><span class="badge rounded-pill border border-warning text-warning fs-6">Pausado</span></td>
+                    <td class="text-center">98</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary fs-6" aria-label="Editar Nissan Kicks">Editar</button>
+                        <button class="btn btn-sm btn-outline-secondary fs-6" aria-label="Ativar anúncio do Nissan Kicks">Pausar</button>
+                        <button class="btn btn-link text-muted ms-1 p-1 border-0 bg-transparent" aria-label="Mais ações para Nissan Kicks">
+                            <i class="fa-solid fa-ellipsis-vertical fs-4" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/2022_Chevrolet_Onix_Turbo_LTZ_%28Chile%29_front_view_%28cropped%29.jpg" alt="Foto lateral do Chevrolet Onix Plus LT" loading="lazy" style="width:80px;height:50px;object-fit:cover;">
+                            <div class="d-flex flex-column">
+                                <strong class="text-dark d-block">Chevrolet Onix Plus LT</strong>
+                                <span class="text-muted small fs-6">1.0 Manual</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td>2018/2019</td>
+                    <td class="fw-semibold text-dark">R$59.900</td>
+                    <td><span class="badge rounded-pill border border-success text-success fs-6">Ativo</span></td>
+                    <td class="text-center">175</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-outline-primary fs-6" aria-label="Editar Chevrolet Onix Plus">Editar</button>
+                        <button class="btn btn-sm btn-outline-secondary fs-6" aria-label="Pausar anúncio do Chevrolet Onix Plus">Pausar</button>
+                        <button class="btn btn-link text-muted ms-1 p-1 border-0 bg-transparent" aria-label="Mais ações para Chevrolet Onix Plus">
+                            <i class="fa-solid fa-ellipsis-vertical fs-4" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top small text-muted">
+        <div role="status" aria-live="polite">Mostrando 1 a 8 de 8 veículos</div>
+        
+        <nav aria-label="Navegação de páginas do estoque">
+            <ul class="pagination pagination-sm m-0 gap-1">
+                <li class="page-item disabled">
+                    <button class="page-link border-0" aria-label="Ir para a página anterior" disabled>
+                        <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                </li>
+                <li class="page-item active" aria-current="page">
+                    <button class="page-link rounded-1" aria-label="Página 1">1</button>
+                </li>
+                <li class="page-item disabled">
+                    <button class="page-link border-0" aria-label="Ir para a próxima página" disabled>
+                        <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</section>
+
+            </div>
+
+        <!-- ---- SIDEBAR DIREITA (3/12): plano, atalhos e dicas ---- -->
+        <div class="col-12 col-xl-3">
+    <aside class="d-flex flex-column gap-4" aria-label="Informações complementares e atalhos">
+        
+        <section class="card p-4 border rounded-3 bg-white shadow-sm" aria-labelledby="titulo-uso-plano">
+            <span class="text-muted small d-block mb-1 fs-5">Plano Atual</span>
+            <h3 id="titulo-uso-plano" class="fs-5 fw-bold text-dark mb-3">Uso do Plano: 8 / 15 anúncios</h3>
+            
+            <div class="progress mb-3 plan-progress">
+                <div class="progress-bar bg-primary w-50" 
+                     role="progressbar" 
+                     aria-valuenow="50" 
+                     aria-valuemin="0" 
+                     aria-valuemax="100">
+                     <span class="visually-hidden">50% do limite de anúncios utilizado</span>
+                </div>
+            </div>
+            
+            <p class="text-muted fs-6">Você pode cadastrar mais 7 veículos</p>
+            <button class="btn btn-primary w-100 fw-semibold py-2">Ver Detalhes do Plano</button>
+        </section>
+
+        <section class="card p-4 border rounded-3 bg-white shadow-sm" aria-labelledby="titulo-atalhos-rapidos">
+            <h3 id="titulo-atalhos-rapidos" class="fs-6 fw-bold text-dark mb-3 fs-5">Atalhos Rápidos</h3>
+            <nav aria-label="Menu de links rápidos">
+                <ul class="list-unstyled d-flex flex-column gap-3 m-0">
+                    <li>
+                        <a href="cadastroVeiculo.html" class="text-decoration-none text-secondary d-flex align-items-center gap-2 fs-5">
+                            <i class="fa-solid fa-plus text-primary small fs-3" aria-hidden="true"></i> Cadastrar Veículos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin.html" class="text-decoration-none text-secondary d-flex align-items-center gap-2 fs-5">
+                            <i class="fa-solid fa-car text-primary small fs-3" aria-hidden="true"></i> Ver Meu Estoque
+                        </a>
+                    </li>
+                    <li>
+                        <a href="visualizacao.html" class="text-decoration-none text-secondary d-flex align-items-center gap-2 fs-5">
+                            <i class="fa-regular fa-comment text-primary small fs-3" aria-hidden="true"></i> Mensagens
+                        </a>
+                    </li>
+                    <li>
+                        <a href="sobre.html" class="text-decoration-none text-secondary d-flex align-items-center gap-2 fs-5">
+                            <i class="fa-solid fa-chart-line text-primary small fs-3" aria-hidden="true"></i> Desempenho
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html" class="text-decoration-none text-secondary d-flex align-items-center gap-2 fs-5">
+                            <i class="fa-regular fa-circle-question text-primary small fs-3" aria-hidden="true"></i> Ajuda e Dúvidas
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="card p-4 border rounded-3 bg-white shadow-sm" aria-labelledby="titulo-dicas-venda">
+            <h3 id="titulo-dicas-venda" class="small d-block fw-bold mb-1 fs-5 text-dark">Dicas Para Vender Mais</h3>
+            <p class="text-muted my-3 small px-2 fs-6">Complete todas as informações do seu veículo e adicione boas fotos para atrair mais compradores.</p>
+            <button class="btn btn-primary w-100 fw-semibold py-2">Ver Dicas</button>
+        </section>
+
+    </aside>
+</div>
+
+        </div>
+
+    </main>
+
+  
+
+    <!-- Bootstrap JS (Popper incluído para tooltips e colapsos) -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
