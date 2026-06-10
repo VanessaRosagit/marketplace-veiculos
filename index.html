@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFSCars - Marketplace de Veículos</title>
+    <!-- Bootstrap CSS v5.3 -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/meu.css">
+
+</head>
+
+<body>
+
+    <!-- HEADER / NAVBAR -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3" aria-label="Navegação Principal">
+            <div class="">
+                <a class="navbar-brand d-flex align-items-center fw-bold fs-3 text-white" href="index.html">
+                    <img src="img/Logo.png" alt="">
+                    <h2> <span>NFS</span>Cars</h2>
+                </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-end mx-5" id="navbarNav">
+                <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+                    <li class="nav-item"><a class="nav-link active fw-semibold mx-5" href="index.html">Comprar</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-5" href="cadastroVeiculo.html">Vender</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-5" href="lojista.html">Lojas</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-5" href="sobre.html">Sobre</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-3">
+                    <a href="login.html" class="text-white fs-5" aria-label="Meus Favoritos"><i
+                            class="fa-regular fa-heart"></i></a>
+                    <a href="login.html" class="btn btn-outline-light px-4 pill d-flex align-items-center gap-2 fs-5">
+                        <i class="fa-regular fa-user"></i> Entrar
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- BUSCA PRINCIPAL -->
+    <main>
+        <section class="busca-inicial mx-auto mt-5 rounded-2" aria-label="Busca rápida de veículos">
+            <div>
+                <h1 class="fw-bold mb-2">Encontre o <span class="text-info">carro ideal</span> para você</h1>
+                <p class="text-white-50 mb-4 fs-5">As melhores agências, os melhores veículos e as melhores
+                    oportunidades em um só lugar.</p>
+
+                <form class="p-5 rounded-3 text-dark row w-100" id="form-inicio">
+                    <div class="col-12 col-md-2">
+                        <label for="buscaMarca" class="form-label fw-bold text-muted small">Marca ou Modelo</label>
+                        <input type="text" id="buscaMarca" class="form-control" placeholder="Ex: Toyota Corolla">
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <label for="buscaPreco" class="form-label fw-semibold text-muted small">Faixa de Preço</label>
+                        <select id="buscaPreco" class="form-select">
+                            <option selected>Selecione</option>
+                            <option value="1">Até R$ 50.000</option>
+                            <option value="2">R$ 50.000 a R$ 100.000</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <label for="buscaRegiao" class="form-label fw-semibold text-muted small">Região</label>
+                        <select id="buscaRegiao" class="form-select">
+                            <option selected>Selecione</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <label for="buscaAnoDe" class="form-label fw-semibold text-muted small">Ano (De)</label>
+                        <select id="buscaAnoDe" class="form-select">
+                            <option selected>De</option>
+                            <option>2020</option>
+                        </select>
+                    </div>
+                    <div class="col-6 col-md-3 col-lg-2">
+                        <label for="buscaAnoAte" class="form-label fw-semibold text-muted small">Ano (Até)</label>
+                        <select id="buscaAnoAte" class="form-select">
+                            <option selected>Até</option>
+                            <option>2026</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-2 d-flex align-items-end ">
+                        <button type="submit" class="btn btn-search w-100 py-2">Buscar</button>
+                    </div>
+                </form>
+
+                <div class="row mt-4 text-center justify-content-center g-3 text-white">
+                    <div class="col-6 col-md-3 fs-5"><i class="fa-solid fa-circle-check text-info me-1"></i> Veículos de
+                        Lojas Confiáveis</div>
+                    <div class="col-6 col-md-3 fs-5"><i class="fa-solid fa-tags text-info me-1"></i> Compare Preços
+                    </div>
+                    <div class="col-6 col-md-3 fs-5"><i class="fa-solid fa-earth-americas text-info me-1"></i> Ofertas
+                        de
+                        Todo Brasil</div>
+                    <div class="col-6 col-md-3 fs-5"><i class="fa-solid fa-lock text-info me-1"></i> Negociação Segura
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="p-3 mx-auto my-5 anuncios">
+            <div class="row g-4">
+
+                <!-- Sidebar de Filtros -->
+                <aside class="col-12 col-lg-3 fs-5" aria-label="Filtros de busca">
+                    <div class="filter-sidebar">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="fw-bold m-0 fs-6">Filtros</h5>
+                            <a href="index.html" class="text-decoration-none small text-primary">Limpar Tudo</a>
+                        </div>
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="checkUsados" checked>
+                                <label class="form-check-label d-flex justify-content-between small" for="checkUsados">
+                                    <span>Usados</span> <span class="text-muted">(5.816)</span>
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="checkNovos">
+                                <label class="form-check-label d-flex justify-content-between small" for="checkNovos">
+                                    <span>Novos</span> <span class="text-muted">(584)</span>
+                                </label>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="accordion accordion-flush" id="accordionFiltros">
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button px-0 fw-semibold bg-white text-dark small"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#filterMarca">
+                                        Marca
+                                    </button>
+                                </h2>
+                                <div id="filterMarca" class="accordion-collapse collapse show">
+                                    <div class="accordion-body px-0 pt-2">
+                                        <input type="text" class="form-control form-control-sm mb-2"
+                                            placeholder="Buscar Marca...">
+                                        <div class="form-check mb-1">
+                                            <input class="form-check-input" type="checkbox" id="marca1">
+                                            <label class="form-check-label small d-flex justify-content-between"
+                                                for="marca1">Chevrolet <span>(1.214)</span></label>
+                                        </div>
+                                        <div class="form-check mb-1">
+                                            <input class="form-check-input" type="checkbox" id="marca2">
+                                            <label class="form-check-label small d-flex justify-content-between"
+                                                for="marca2">Volkswagen <span>(984)</span></label>
+                                        </div>
+                                        <div class="form-check mb-1">
+                                            <input class="form-check-input" type="checkbox" id="marca3">
+                                            <label class="form-check-label small d-flex justify-content-between"
+                                                for="marca3">Toyota <span>(845)</span></label>
+                                        </div>
+                                        <a href="lojista.html" class="small text-primary text-decoration-none">+ Ver Todas</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
+                                        type="button" data-bs-toggle="collapse" data-bs-target="#filterPreco">
+                                        Faixa de Preço
+                                    </button>
+                                </h2>
+                                <div id="filterPreco" class="accordion-collapse collapse">
+                                    <div class="accordion-body px-0 pt-2">
+                                        <input type="range" class="form-range" min="19900" max="299900" id="rangePreco">
+                                        <div class="d-flex justify-content-between small text-muted">
+                                            <span>R$19.900</span>
+                                            <span>R$299.900</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="accordion-item">
+                                <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#filterAno">Ano</button>
+                                <div id="filterAno" class="accordion-collapse collapse">
+                                    <div class="accordion-body px-0 small">Filtros de Ano...</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
+                                    type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#filterCambio">Câmbio</button>
+                                <div id="filterCambio" class="accordion-collapse collapse">
+                                    <div class="accordion-body px-0 small">Automático / Manual...</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
+                                    type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#filterCombustivel">Combustível</button>
+                                <div id="filterCombustivel" class="accordion-collapse collapse">
+                                    <div class="accordion-body px-0 small">Flex, Diesel, Gasolina...</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
+                                    type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#filterQuilometragem">Quilometragem</button>
+                                <div id="filterQuilometragem" class="accordion-collapse collapse">
+                                    <div class="accordion-body px-0 small">Selecione</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#filterItens">Itens do
+                                    veículo</button>
+                                <div id="filterItens" class="accordion-collapse collapse">
+                                    <div class="accordion-body px-0 small">Selecione</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#filterRegião">Cidade /
+                                    Região</button>
+                                <div id="filterRegião" class="accordion-collapse collapse">
+                                    <div class="accordion-body px-0 small">Selecione</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-button collapsed px-0 fw-semibold bg-white text-dark small"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#filterCor">Cor</button>
+                                <div id="filterCor" class="accordion-collapse collapse">
+                                    <div class="accordion-body px-0 small">Selecione</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </aside>
+
+                <section class="col-12 col-lg-9 fs-5" aria-label="Resultados da busca">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <span class="fw-semibold text-muted">1.250 Anúncios Encontrados</span>
+                        <div class="d-flex align-items-center gap-2">
+                            <label for="ordenarPor" class="text-nowrap small text-muted"><i
+                                    class="fa-solid fa-arrow-down-up-lock"></i> Ordenar Por:</label>
+                            <select id="ordenarPor" class="form-select form-select-sm" style="width: auto;">
+                                <option selected>Mais Relevantes</option>
+                                <option>Menor Preço</option>
+                                <option>Maior Preço</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row g-3">
+
+                        <div class="col-12 col-md-4">
+                            <article class="car-card">
+                                <div class="position-relative">
+                                    <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                                    <img src="https://placehold.co/400x250/ccc/333?text=Chevrolet+Onix"
+                                        class="img-fluid w-100" alt="Chevrolet Onix Branco">
+                                    <span class="img-badge fs-7">1/6</span>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="fw-bold mb-1 text-dark">Chevrolet Onix</h3>
+                                    <p class="text-muted small mb-2">1.4 Automático</p>
+                                    <div class="row text-muted small g-2 mb-3">
+                                        <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2024/2025</div>
+                                        <div class="col-6 text-end fs-5"><i class="fa-solid fa-gauge me-1"></i> 39.800
+                                            KM
+                                        </div>
+                                        <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> São Paulo (SP)
+                                        </div>
+                                        <div class="col-12 fw-semibold text-dark"><i class="fa-solid fa-shop me-1"></i>
+                                            Prime Motors</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                                        <span class="preco fw-bold text-primary">R$ 83.900</span>
+                                        <a href="visualizacao.html" class="btn btn-sm btn-outline-primary px-3 fs-5">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <article class="car-card">
+                                <div class="position-relative">
+                                    <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                                    <img src="https://placehold.co/400x250/bbb/333?text=Toyota+Corolla"
+                                        class="img-fluid w-100" alt="Toyota Corolla Prata">
+                                    <span class="img-badge fs-7">1/6</span>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="fw-bold mb-1 text-dark">Toyota Corolla XEI</h3>
+                                    <p class="text-muted small mb-2">2.0 Automático</p>
+                                    <div class="row text-muted small g-2 mb-3">
+                                        <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2022/2023</div>
+                                        <div class="col-6 text-end fs-5"><i class="fa-solid fa-gauge me-1"></i> 32.000
+                                            KM
+                                        </div>
+                                        <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> Osasco (SP)
+                                        </div>
+                                        <div class="col-12 fw-semibold text-dark"><i class="fa-solid fa-shop me-1"></i>
+                                            Auto Prime Veículos</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                                        <span class="preco fw-bold text-primary">R$ 129.900</span>
+                                        <a href="visualizacao.html" class="btn btn-sm btn-outline-primary px-3 fs-5">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <article class="car-card">
+                                <div class="position-relative">
+                                    <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                                    <img src="https://placehold.co/400x250/aaa/333?text=Honda+Civic"
+                                        class="img-fluid w-100" alt="Honda Civic Cinza">
+                                    <span class="img-badge fs-7">1/6</span>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="fw-bold mb-1 text-dark">Honda Civic</h3>
+                                    <p class="text-muted small mb-2">1.5 Automático</p>
+                                    <div class="row text-muted small g-2 mb-3">
+                                        <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2021/2022</div>
+                                        <div class="col-6 text-end fs-5"><i class="fa-solid fa-gauge me-1"></i> 28.800
+                                            KM
+                                        </div>
+                                        <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> Salvador (BA)
+                                        </div>
+                                        <div class="col-12 fw-semibold text-dark"><i class="fa-solid fa-shop me-1"></i>
+                                            Diamond Motors</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                                        <span class="preco fw-bold text-primary">R$ 144.900</span>
+                                        <a href="visualizacao.html" class="btn btn-sm btn-outline-primary px-3 fs-5">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <article class="car-card">
+                                <div class="position-relative">
+                                    <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                                    <img src="https://placehold.co/400x250/999/333?text=Toyota+Hilux"
+                                        class="img-fluid w-100" alt="Toyota Hilux Preta">
+                                    <span class="img-badge fs-7">1/6</span>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="fw-bold mb-1 text-dark">Toyota Hilux SRX 4x4</h3>
+                                    <p class="text-muted small mb-2">2.8 Turbo Automático</p>
+                                    <div class="row text-muted small g-2 mb-3">
+                                        <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2023/2023</div>
+                                        <div class="col-6 text-end fs-5"><i class="fa-solid fa-gauge me-1"></i> 18.000
+                                            KM
+                                        </div>
+                                        <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> Goiania (GO)
+                                        </div>
+                                        <div class="col-12 fw-semibold text-dark"><i class="fa-solid fa-shop me-1"></i>
+                                            Forte Motors</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                                        <span class="preco fw-bold text-primary">R$ 289.900</span>
+                                        <a href="visualizacao.html" class="btn btn-sm btn-outline-primary px-3 fs-5">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <article class="car-card">
+                                <div class="position-relative">
+                                    <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                                    <img src="https://placehold.co/400x250/888/333?text=Hyundai+Creta"
+                                        class="img-fluid w-100" alt="Hyundai Creta Azul">
+                                    <span class="img-badge fs-7">1/6</span>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="fw-bold mb-1 text-dark">Hyundai Creta</h3>
+                                    <p class="text-muted small mb-2">1.0 Turbo Automático</p>
+                                    <div class="row text-muted small g-2 mb-3">
+                                        <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2021/2022</div>
+                                        <div class="col-6 text-end fs-5"><i class="fa-solid fa-gauge me-1"></i> 24.000
+                                            KM
+                                        </div>
+                                        <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> Florianópolis
+                                            (SC)</div>
+                                        <div class="col-12 fw-semibold text-dark"><i class="fa-solid fa-shop me-1"></i>
+                                            Urban Motors</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                                        <span class="preco fw-bold text-primary">R$ 134.900</span>
+                                        <a href="visualizacao.html" class="btn btn-sm btn-outline-primary px-3 fs-5">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-12 col-md-4">
+                            <article class="car-card">
+                                <div class="position-relative">
+                                    <span class="favorite-icon"><i class="fa-regular fa-heart"></i></span>
+                                    <img src="https://placehold.co/400x250/777/333?text=Fiat+Argo"
+                                        class="img-fluid w-100" alt="Fiat Argo Vermelho">
+                                    <span class="img-badge fs-7">1/6</span>
+                                </div>
+                                <div class="p-3">
+                                    <h3 class="fw-bold mb-1 text-dark">Fiat Argo Drive</h3>
+                                    <p class="text-muted small mb-2">1.0 manual</p>
+                                    <div class="row text-muted small g-2 mb-3">
+                                        <div class="col-6"><i class="fa-regular fa-calendar me-1"></i> 2022/2023</div>
+                                        <div class="col-6 text-end fs-5"><i class="fa-solid fa-gauge me-1"></i> 36.000
+                                            KM
+                                        </div>
+                                        <div class="col-12"><i class="fa-solid fa-location-dot me-1"></i> Belo Horizonte
+                                            (MG)</div>
+                                        <div class="col-12 fw-semibold text-dark"><i class="fa-solid fa-shop me-1"></i>
+                                            Nova Era Veículos</div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center border-top pt-3">
+                                        <span class="preco fw-bold text-primary">R$ 69.900</span>
+                                        <a href="visualizacao.html" class="btn btn-sm btn-outline-primary px-3 fs-5">Ver Detalhes</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <nav class="mt-5" aria-label="Navegação de páginas de resultados">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled"><a class="page-line page-link" href="#" tabindex="-1"><i
+                                        class="fa-solid fa-chevron-left"></i></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i
+                                        class="fa-solid fa-chevron-right"></i></a></li>
+                        </ul>
+                    </nav>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer padrao -->
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-12 col-md-3">
+                    <span class="fw-bold fs-4 text-white d-block mb-2"><i class="fa-solid fa-gauge-high text-info"></i>
+                        NFSCars</span>
+                    <p class="text-white-50 small">Marketplace de veículos com agências verificadas.</p>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h4 class="fw-bold text-white mb-3">Sobre nós</h4>
+                    <p class="text-white-50 small mb-2">Saiba mais sobre nossa história, missão e valores.</p>
+                    <a href="sobre.html" class="text-info small fw-semibold">Conheça a NFSCars <i
+                            class="fa-solid fa-chevron-right small"></i></a>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h4 class="fw-bold text-white mb-3">Ajuda</h4>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><a href="sobre.html"><i class="fa-solid fa-chevron-right me-1 text-white-50"
+                                    style="font-size:10px;"></i> Central de ajuda</a></li>
+                        <li><a href="cadastroVeiculo.html"><i class="fa-solid fa-chevron-right me-1 text-white-50"
+                                    style="font-size:10px;"></i> Como anunciar</a></li>
+                        <li><a href="admin.html"><i class="fa-solid fa-chevron-right me-1 text-white-50"
+                                    style="font-size:10px;"></i> Segurança</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-chevron-right me-1 text-white-50"
+                                    style="font-size:10px;"></i> Política de privacidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <h4 class="fw-bold text-white mb-3">Contato</h4>
+                    <p class="text-white-50 small mb-2"><i class="fa-solid fa-phone me-2 text-info"></i> (11) 99999-9999
+                    </p>
+                    <p class="text-white-50 small"><i class="fa-solid fa-envelope me-2 text-info"></i>
+                        contato@nfscars.com</p>
+                </div>
+
+                <div class="col-12 col-md-2 text-md-end">
+                    <h4 class="fw-bold text-white mb-3">Redes Sociais</h4>
+                    <div class="d-flex gap-3 justify-content-md-end">
+                        <a href="index.html" class="text-white fs-4" aria-label="Facebook"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="index.html" class="text-white fs-4" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-white-50 small">
+                © 2026 ABIGAIU PORTO | BRUNO HENRIQUE | VANESSA ROSA Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

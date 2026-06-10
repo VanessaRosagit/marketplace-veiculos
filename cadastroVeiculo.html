@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFSCars - Cadastrar Veículo</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/meu.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3" aria-label="Navegação Principal">
+            <div class="">
+                <a class="navbar-brand d-flex align-items-center fw-bold fs-3 text-white" href="index.html">
+                    <img src="img/Logo.png" alt="">
+                    <h2> <span>NFS</span>Cars</h2>
+                </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-end mx-5" id="navbarNav">
+                <ul class="navbar-nav mb-2 mb-lg-0 gap-3 fs-5">
+                    <li class="nav-item"><a class="nav-link text-white mx-3" href="admin.html"><i
+                                class="fa-solid fa-chart-simple me-1"></i> Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-semibold mx-3" href="cadastroVeiculo.html"><i
+                                class="fa-solid fa-car me-1"></i> Veículos</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-3" href="visualizacao.html"><i
+                                class="fa-solid fa-users me-1"></i> Leads</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-3" href="lojista.html"><i
+                                class="fa-solid fa-basket-shopping me-1"></i> Vendas</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-3" href="sobre.html"><i
+                                class="fa-solid fa-calendar me-1"></i> Relatórios</a></li>
+                    <li class="nav-item"><a class="nav-link text-white mx-3" href="login.html"><i
+                                class="fa-solid fa-gauge-high me-1"></i> Opções</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center gap-2 ms-4 text-white">
+                    <div class="bg-success rounded-circle d-flex align-items-center justify-content-center fw-bold"
+                        style="width: 40px; height: 40px;">XP</div>
+                    <div class="small">
+                        <span class="d-block fw-bold">Auto Norte Multimarcas</span>
+                        <span class="text-white-50">Agência</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <nav aria-label="Caminho de navegação">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="cadastroVeiculo.html" class="text-decoration-none">Veículos</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Cadastrar / Editar Veículo</li>
+            </ol>
+        </nav>
+    </div>
+
+    <main class="container mb-5">
+
+        <div class="d-flex justify-content-between align-items-center mb-2">
+            <div>
+                <h1 class="fw-bold h2 m-0 text-dark">Cadastrar Veículo</h1>
+                <p class="text-muted m-0">Preencha as informações do veículo para criar seu anúncio.</p>
+            </div>
+            <a href="lojista.html" class="btn btn-outline-primary px-4 py-2 fw-semibold"><i
+                    class="fa-solid fa-arrow-left me-2"></i>Voltar para lista</a>
+        </div>
+
+        <form class="row g-4 mt-2">
+
+            <div class="col-12 col-lg-8">
+
+                <section class="bg-white p-4 rounded-3 shadow-sm mb-4" aria-labelledby="titulo-bloco1">
+                    <h2 id="titulo-bloco1" class="h5 fw-bold text-dark border-bottom pb-2 mb-3">1. Informações do
+                        veículo</h2>
+
+                    <div class="row g-3">
+                        <div class="col-12 col-md-4">
+                            <label for="selectMarca" class="form-label small fw-bold text-dark">Marca <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <select id="selectMarca" class="form-select py-2" aria-required="true">
+                                <option value="" selected>Selecione a marca</option>
+                                <option>Chevrolet</option>
+                                <option>Honda</option>
+                                <option>Toyota</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="selectModelo" class="form-label small fw-bold text-dark">Modelo <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <select id="selectModelo" class="form-select py-2" aria-required="true">
+                                <option value="" selected>Selecione o modelo</option>
+                                <option>Civic</option>
+                                <option>Onix</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="selectVersao" class="form-label small fw-bold text-dark">Versão</label>
+                            <select id="selectVersao" class="form-select py-2">
+                                <option value="" selected>Selecione a versão</option>
+                                <option>1.4 flex Automático</option>
+                                <option>2.0 LX manual</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="selectAno" class="form-label small fw-bold text-dark">Ano <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <select id="selectAno" class="form-select py-2" aria-required="true">
+                                <option value="" selected>Selecione o ano</option>
+                                <option>2024/2025</option>
+                                <option>2023/2023</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="inputKm" class="form-label small fw-bold text-dark">Quilometragem <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <div class="input-group">
+                                <input type="number" id="inputKm" class="form-control py-2" placeholder="Ex: 48.000"
+                                    aria-required="true">
+                                <span class="input-group-text bg-light fw-bold text-muted">km</span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="inputPreco" class="form-label small fw-bold text-dark">Preço <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-secondary text-white fw-bold">R$</span>
+                                <input type="text" id="inputPreco" class="form-control py-2" placeholder="Ex: 89.900,00"
+                                    aria-required="true">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="selectCor" class="form-label small fw-bold text-dark">Cor <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <select id="selectCor" class="form-select py-2" aria-required="true">
+                                <option value="" selected>Selecione a cor</option>
+                                <option>Branco</option>
+                                <option>Preto</option>
+                                <option>Cinza</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="selectCambio" class="form-label small fw-bold text-dark">Câmbio <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <select id="selectCambio" class="form-select py-2" aria-required="true">
+                                <option value="" selected>Selecione o câmbio</option>
+                                <option>Automático</option>
+                                <option>Manual</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <label for="selectCombustivel" class="form-label small fw-bold text-dark">Combustível <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <select id="selectCombustivel" class="form-select py-2" aria-required="true">
+                                <option value="" selected>Selecione o combustível</option>
+                                <option>Flex</option>
+                                <option>Gasolina</option>
+                                <option>Álcool</option>
+                                <option>Diesel</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="inputPlaca" class="form-label small fw-bold text-dark">Placa / Final</label>
+                            <input type="text" id="inputPlaca" class="form-control py-2"
+                                placeholder="Ex: ABC1D23 ou Final 3">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <label for="inputChassi" class="form-label small fw-bold text-dark">Chassi <span
+                                    class="text-primary">(opcional)</span></label>
+                            <input type="text" id="inputChassi" class="form-control py-2"
+                                placeholder="Ex: 9BWZZZ377VT004251">
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white p-4 rounded-3 shadow-sm mb-4" aria-labelledby="titulo-bloco2">
+                    <h2 id="titulo-bloco2" class="h5 fw-bold text-dark border-bottom pb-2 mb-3">2. Descrição do veículo
+                    </h2>
+
+                    <div class="row g-4">
+                        <div class="col-12 col-md-7">
+                            <label for="txtDescricao" class="form-label small fw-bold text-dark">Descrição <span
+                                    class="text-danger">(obrigatório)</span></label>
+                            <textarea id="txtDescricao" class="form-control" rows="8" maxlength="1000"
+                                placeholder="Descreva os principais diferenciais, opcionais e o estado geral do veículo..."
+                                aria-required="true"></textarea>
+                            <div class="form-text text-muted small mt-1">0 / 1000 caracteres</div>
+                        </div>
+                        <div class="col-12 col-md-5">
+                            <span class="form-label small fw-bold text-dark d-block mb-2">Destaques do veículo <i
+                                    class="fa-solid fa-circle-info text-muted"
+                                    title="Selecione os selos de destaque"></i></span>
+
+                            <div class="d-flex flex-column gap-2 mt-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="destaqueTroca">
+                                    <label class="form-check-label text-dark small" for="destaqueTroca">Aceita
+                                        troca</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="destaqueDono">
+                                    <label class="form-check-label text-dark small" for="destaqueDono">Único
+                                        dono</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="destaqueIpva">
+                                    <label class="form-check-label text-dark small" for="destaqueIpva">IPVA Pago</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="destaqueManual">
+                                    <label class="form-check-label text-dark small" for="destaqueManual">Manual do
+                                        proprietário</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="destaqueRevisoes">
+                                    <label class="form-check-label text-dark small" for="destaqueRevisoes">Revisões em
+                                        dia</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="bg-white p-4 rounded-3 shadow-sm mb-4" aria-labelledby="titulo-bloco3">
+                    <h2 id="titulo-bloco3" class="h5 fw-bold text-dark border-bottom pb-2 mb-2">3. Fotos do veículo</h2>
+                    <p class="text-muted small mb-3">Adicione fotos reais do veículo. Recomendamos pelo menos 6 imagens.
+                    </p>
+
+                    <div class="row g-2">
+                        <div class="col-4 col-sm-2">
+                            <div class="border border-dashed rounded-3 p-3 text-center d-flex flex-column align-items-center justify-content-center h-100 bg-light cursor-pointer"
+                                style="border-style: dashed !important; min-height: 110px;" role="button"
+                                aria-label="Adicionar fotos">
+                                <i class="fa-solid fa-cloud-arrow-up text-primary fs-3 mb-1"></i>
+                                <span class="fw-bold text-dark" style="font-size: 11px;">Adicionar fotos</span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-2">
+                            <div class="border rounded-3 h-100 position-relative bg-light d-flex align-items-center justify-content-center"
+                                style="min-height: 110px;">
+                                <span class="position-absolute top-0 end-0 p-1 text-muted small"><i
+                                        class="fa-solid fa-circle-xmark"></i></span>
+                                <span
+                                    class="text-muted border bg-white rounded p-1 position-absolute bottom-0 start-0 m-1"
+                                    style="font-size: 9px;">Foto principal</span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-2">
+                            <div class="border rounded-3 h-100 position-relative bg-light" style="min-height: 110px;">
+                                <span class="position-absolute top-0 end-0 p-1 text-muted small"><i
+                                        class="fa-solid fa-circle-xmark"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-2">
+                            <div class="border rounded-3 h-100 position-relative bg-light" style="min-height: 110px;">
+                                <span class="position-absolute top-0 end-0 p-1 text-muted small"><i
+                                        class="fa-solid fa-circle-xmark"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-2">
+                            <div class="border rounded-3 h-100 position-relative bg-light" style="min-height: 110px;">
+                                <span class="position-absolute top-0 end-0 p-1 text-muted small"><i
+                                        class="fa-solid fa-circle-xmark"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-4 col-sm-2">
+                            <div class="border rounded-3 h-100 position-relative bg-light" style="min-height: 110px;">
+                                <span class="position-absolute top-0 end-0 p-1 text-muted small"><i
+                                        class="fa-solid fa-circle-xmark"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="d-flex align-items-center justify-content-between pt-2">
+                    <button type="button" class="btn btn-outline-secondary mx-2 py-2 fw-semibold">Salvar rascunho</button>
+                    <button type="submit" class="btn btn-search mx-2 py-2">Publicar anúncio</button>
+
+                    <span class="text-muted small d-none d-sm-inline"><i class="fa-solid fa-lock text-primary me-1"></i> Seus dados estão seguros. O anúncio será revisado antes da publicação.</span>
+
+                </div>
+
+            </div>
+
+            <div class="col-12 col-lg-4">
+                <aside class="sticky-top" style="top: 20px;" aria-label="Pré-visualização do anúncio lateral">
+
+                    <div class="bg-white rounded-3 shadow-sm p-4 mb-4 border">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h3 class="h6 fw-bold text-dark m-0">Pré-visualização do anúncio</h3>
+                            <span class="badge bg-light text-dark border">Rascunho</span>
+                        </div>
+
+                        <div class="position-relative mb-3">
+                            <button type="button" class="favorite-icon border-0 bg-transparent text-white"
+                                aria-label="Favoritar veículo"><i class="fa-regular fa-heart"></i></button>
+                            <img src="https://placehold.co/400x250/"
+                                class="img-fluid rounded w-100" alt="Pré-visualização do veículo">
+                            <span class="img-badge"><i class="fa-solid fa-camera me-1"></i> 1 / 8</span>
+                        </div>
+
+                        <h4 class="fw-bold h5 text-dark mb-1">Honda Civic</h4>
+                        <p class="text-muted small mb-2">2021/2022 • 28.800 km • Flex • Automático</p>
+
+                        <div class="preco fw-bold text-dark mb-3">R$ 144.900</div>
+
+                        <div class="d-flex flex-wrap gap-1 mb-3">
+                            <span
+                                class="badge bg-light text-muted border py-2 px-3 fw-normal text-dark rounded-1">Aceita
+                                troca</span>
+                            <span class="badge bg-light text-muted border py-2 px-3 fw-normal text-dark rounded-1">Único
+                                dono</span>
+                            <span class="badge bg-light text-muted border py-2 px-3 fw-normal text-dark rounded-1">IPVA
+                                Pago</span>
+                        </div>
+
+                        <div class="text-muted small mb-3"><i
+                                class="fa-solid fa-location-dot text-primary me-2"></i>Salvador - BA</div>
+
+                        <div class="border-top pt-3">
+                            <span class="fw-bold small text-dark d-block mb-2">Sobre o veículo</span>
+                            <div class="bg-light w-100 rounded mb-2" style="height: 8px;"></div>
+                            <div class="bg-light w-100 rounded mb-2" style="height: 8px;"></div>
+                            <div class="bg-light w-75 rounded mb-3" style="height: 8px;"></div>
+                        </div>
+
+                        <div class="text-center text-muted border-top pt-2" style="font-size: 11px;">
+                            A Pré-visualização é apenas uma referência.
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-3 shadow-sm p-4 border" aria-labelledby="titulo-agencia">
+                        <h3 id="titulo-agencia" class="h6 fw-bold text-dark border-bottom pb-2 mb-3">Contato da agência
+                        </h3>
+
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <div class="bg-success rounded-circle d-flex align-items-center justify-content-center fw-bold text-white"
+                                style="width: 45px; height: 45px;">XP</div>
+                            <div>
+                                <span class="d-block fw-bold text-dark small">Auto Norte Multimarcas</span>
+                                <span class="text-muted small">Revendedor parceiro<i
+                                        class="fa-solid fa-circle-check text-success me-1 m-2"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column gap-3 border-top pt-3 text-dark small">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="fa-brands fa-whatsapp text-success fs-4"></i>
+                                <div>
+                                    <span class="d-block fw-bold">(11) 99999-9999</span>
+                                    <span class="text-muted xsmall">WhatsApp</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="fa-solid fa-phone text-primary fs-5"></i>
+                                <div>
+                                    <span class="d-block fw-bold">(11) 33333-3333</span>
+                                    <span class="text-muted xsmall">Telefone fixo</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="fa-solid fa-location-dot text-muted fs-5"></i>
+                                <div>
+                                    <span class="d-block fw-bold">Salvador - BA</span>
+                                    <span class="text-muted xsmall">Atendimento: Seg a Sex 08h às 18h</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
+        </form>
+
+    </main>
+
+    <footer class="mt-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-12 col-md-3">
+                    <span class="fw-bold fs-4 text-white d-block mb-2"><i class="fa-solid fa-gauge-high text-info"></i>
+                        NFSCars</span>
+                    <p class="text-white-50 small">Marketplace de veículos com agências verificadas.</p>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h4 class="fw-bold text-white mb-3">Sobre nós</h4>
+                    <p class="text-white-50 small mb-2">Saiba mais sobre nossa história, missão e valores.</p>
+                    <a href="sobre.html" class="text-info small fw-semibold">Conheça a NFSCars <i
+                            class="fa-solid fa-chevron-right small"></i></a>
+                </div>
+
+                <div class="col-6 col-md-2">
+                    <h4 class="fw-bold text-white mb-3">Ajuda</h4>
+                    <ul class="list-unstyled small d-flex flex-column gap-2">
+                        <li><a href="sobre.html"><i class="fa-solid fa-chevron-right me-1 text-white-50"
+                                    style="font-size:10px;"></i> Central de ajuda</a></li>
+                        <li><a href="cadastroVeiculo.html"><i class="fa-solid fa-chevron-right me-1 text-white-50"
+                                    style="font-size:10px;"></i> Como anunciar</a></li>
+                        <li><a href="admin.html"><i class="fa-solid fa-chevron-right me-1 text-white-50"
+                                    style="font-size:10px;"></i> Segurança</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-chevron-right me-1 text-white-50"
+                                    style="font-size:10px;"></i> Política de privacidade</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-12 col-md-3">
+                    <h4 class="fw-bold text-white mb-3">Contato</h4>
+                    <p class="text-white-50 small mb-2"><i class="fa-solid fa-phone me-2 text-info"></i> (11) 99999-9999
+                    </p>
+                    <p class="text-white-50 small"><i class="fa-solid fa-envelope me-2 text-info"></i>
+                        contato@nfscars.com</p>
+                </div>
+
+                <div class="col-12 col-md-2 text-md-end">
+                    <h4 class="fw-bold text-white mb-3">Redes Sociais</h4>
+                    <div class="d-flex gap-3 justify-content-md-end">
+                        <a href="index.html" class="text-white fs-4" aria-label="Facebook"><i
+                                class="fa-brands fa-facebook"></i></a>
+                        <a href="index.html" class="text-white fs-4" aria-label="Instagram"><i
+                                class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4">
+            <div class="text-center text-white-50 small">
+                © 2026 ABIGAIU PORTO | BRUNO HENRIQUE | VANESSA ROSA Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
